@@ -18,6 +18,7 @@ class route
             $_SERVER['REQUEST_URI'] == '/') {
             $this->ctrl = conf::get('CTRL', 'route');
             $this->action = conf::get('ACTION', 'route');
+            return;
         }
         $path = $_SERVER['REQUEST_URI'];
         $pathArr = explode('/', trim($path, '/'));

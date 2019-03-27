@@ -20,8 +20,8 @@ class imooc
             $className = '\\app\\ctrl\\' . $ctrlClass . 'Ctrl';
             $ctrl = new $className();
             $ctrl->$action();
-            log('ctrl:' . $ctrlClass, 'core');
-            log('action:' . $action, 'core');
+            \core\lib\log::log('ctrl:' . $ctrlClass, 'core');
+            \core\lib\log::log('action:' . $action, 'core');
         } else {
             throw new \Exception("Can't find Ctrl" . $ctrlClass);
         }
