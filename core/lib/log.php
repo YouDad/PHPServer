@@ -4,8 +4,8 @@ namespace core\lib;
 class log
 {
     /**
-     * 1.确定日志存储方式
-     * 2.写日志
+     * 1.make sure log's storage
+     * 2.write log
      */
     public static $class;
 
