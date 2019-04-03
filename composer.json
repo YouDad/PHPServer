@@ -1,15 +1,12 @@
 {
   "name": "API_SERVER",
   "description": "PHP Framework, specify for api server.",
-  "author": "Karl,1632083718@qq.com",
   "type": "Framework",
-  "keyword": [
-    "PHP Framework"
-  ],
   "require": {
     "php": ">= 5.4.0",
     "filp/whoops": "*",
     "symfony/var-dumper": "*",
-    "ext-json": "*"
+    "ext-json": "*",
+    "ext-pdo": "*"
   }
 }

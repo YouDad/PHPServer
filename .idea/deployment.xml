@@ -9,6 +9,14 @@
           </mappings>
         </serverdata>
       </paths>
+      <paths name="work_log">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/" local="$USER_HOME$/Desktop/work_log" web="/" />
+            <mapping deploy="" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
     </serverData>
   </component>
 </project>
