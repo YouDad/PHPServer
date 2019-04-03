@@ -13,7 +13,7 @@ class put_log extends \core\ApiCtrl
         if (isset($_1) && isset($_2) && isset($_3)) {
             if (model('Log')->update_log($_1, $_2, $_3)) {
                 $response['result'] = 'success';
-                $response['content'] = model('Log')->get_log($_GET['i']);
+                $response['content'] = model('Log')->get_log($_1);
             }
         }
         return $response;

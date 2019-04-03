@@ -6,8 +6,15 @@ class get_room extends \core\ApiCtrl
 {
     public function main()
     {
-        $model = new \core\lib\model();
+        $_1 = $_GET['rid'];
+        $response = ['result' => 'failure'];
+        if (!isset($_1)) {
+            return $response;
+        }
 
-        return $model->get_room($_GET['rid']);
+        $response['result'] = 'success';
+        $response['option'] = model('Room')->get_room($_1);
+
+        return $response;
     }
 }

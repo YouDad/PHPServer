@@ -8,18 +8,16 @@ class RoomModel extends \core\lib\MyDB
 {
     public function get_all_room()
     {
-        $ret = array('result' => 'success');
-        $res = $this->select(T_ROOM, '*', 'access=1 OR access=2');
-        $ret['option'] = $res->fetchAll();
-        return $ret;
+        $res = $this->select(T_ROOM, '*',
+            'access BETWEEN 1 AND 2');
+        return $res->fetchAll();
     }
 
     public function get_room($rid)
     {
-        $ret = array('result' => 'success');
-        $res = $this->select(T_ROOM, '*', '(access=1 OR access=2) AND rid=' . $rid);
-        $ret['option'] = $res->fetchAll()[0];
-        return $ret;
+        $res = $this->select(T_ROOM, '*',
+            '(access BETWEEN 1 AND 2) AND rid=' . $rid);
+        return $res->fetchAll()[0];
     }
 
     public function add_room($t, $s, $a, $i, $o)

@@ -2,29 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1625c291-268b-4d6f-b376-3d81e8b0c22e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/get_time.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/model.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ctrl/delete_user_for_test.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/html.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/html.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/架构.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/软工ER图.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/includer.php" beforeDir="false" afterPath="$PROJECT_DIR$/common/includer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/lib/MyDB.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/lib/MyDB.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/lib/model/CookieModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/lib/model/CookieModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/lib/model/LogModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/lib/model/LogModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/lib/model/UserModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/lib/model/UserModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/lib/model/RoomModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/lib/model/RoomModel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ctrl/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/ctrl/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ctrl/get_log.php" beforeDir="false" afterPath="$PROJECT_DIR$/ctrl/get_log.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ctrl/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/ctrl/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ctrl/log.php" beforeDir="false" afterPath="$PROJECT_DIR$/ctrl/log.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ctrl/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/ctrl/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ctrl/get_all_room.php" beforeDir="false" afterPath="$PROJECT_DIR$/ctrl/get_all_room.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ctrl/get_room.php" beforeDir="false" afterPath="$PROJECT_DIR$/ctrl/get_room.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ctrl/put_log.php" beforeDir="false" afterPath="$PROJECT_DIR$/ctrl/put_log.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ctrl/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/ctrl/register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,52 +35,35 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5260916">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/core/lib/MyDB.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="755">
-                  <caret line="70" column="5" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/core/lib/model/UserModel.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="345">
-                  <caret line="23" column="46" lean-forward="true" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/core/config/database.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="210">
-                  <caret line="14" column="38" lean-forward="true" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/ctrl/api.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="285">
-                  <caret line="19" column="27" lean-forward="true" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/config/database.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="38" lean-forward="true" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ctrl/api.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="559">
+              <caret line="76" column="49" selection-start-line="76" selection-start-column="49" selection-end-line="76" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/lib/model/RoomModel.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="26" column="44" lean-forward="true" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -106,8 +74,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>isCopy</find>
-      <find>init</find>
       <find>init_tree</find>
       <find>exist_user</find>
       <find>%s</find>
@@ -136,6 +102,8 @@
       <find>var</find>
       <find>hex_md5</find>
       <find>$this-&gt;get_time()</find>
+      <find>array\(([^)]*?)\)</find>
+      <find>array(</find>
     </findStrings>
     <replaceStrings>
       <replace>APIS</replace>
@@ -164,6 +132,8 @@
       <replace>let</replace>
       <replace>md5</replace>
       <replace>get_time()</replace>
+      <replace>[$1]</replace>
+      <replace>[</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -173,7 +143,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$USER_HOME$/Desktop/日志/zTree/demo/cn/exedit/edit_super.html" />
         <option value="$USER_HOME$/Desktop/work_log/css/main.css" />
         <option value="$USER_HOME$/Desktop/work_log/css/zTreeStyle.css" />
         <option value="$USER_HOME$/Desktop/work_log/index.html" />
@@ -188,11 +157,9 @@
         <option value="$PROJECT_DIR$/view/work_log/js/md5.js" />
         <option value="$PROJECT_DIR$/view/work_log/css/demo.css" />
         <option value="$PROJECT_DIR$/view/work_log/index.html" />
-        <option value="&lt;1da66262-1000-45bc-b442-461ba8f5cbfa&gt;/view/work_log/index.html" />
         <option value="$PROJECT_DIR$/view/work_log/css/main.css" />
         <option value="&lt;1da66262-1000-45bc-b442-461ba8f5cbfa&gt;/view/work_log/css/main.css" />
         <option value="$PROJECT_DIR$/ctrl/join_hottery.php" />
-        <option value="$PROJECT_DIR$/ctrl/get_room.php" />
         <option value="$PROJECT_DIR$/view/work_log/js/main.js" />
         <option value="&lt;1da66262-1000-45bc-b442-461ba8f5cbfa&gt;/core/lib/user_model" />
         <option value="$PROJECT_DIR$/core/lib/user_model.php" />
@@ -201,13 +168,11 @@
         <option value="$PROJECT_DIR$/core/lib/mydb.php" />
         <option value="$PROJECT_DIR$/core/lib/model.php" />
         <option value="&lt;1da66262-1000-45bc-b442-461ba8f5cbfa&gt;/ctrl/get_log.php" />
-        <option value="$PROJECT_DIR$/core/lib/model/RoomModel.php" />
         <option value="$PROJECT_DIR$/ctrl/index.php" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/common/get_ip.php" />
         <option value="$PROJECT_DIR$/core/config/database.php" />
         <option value="$PROJECT_DIR$/ctrl/register.php" />
-        <option value="$PROJECT_DIR$/ctrl/api.php" />
         <option value="$PROJECT_DIR$/core/lib/model/UserModel.php" />
         <option value="$PROJECT_DIR$/ctrl/delete_user_for_test.php" />
         <option value="$PROJECT_DIR$/core/lib/model/CookieModel.php" />
@@ -220,10 +185,15 @@
         <option value="$USER_HOME$/Desktop/test/UnitTest/test.js" />
         <option value="$PROJECT_DIR$/ctrl/log.php" />
         <option value="$PROJECT_DIR$/ctrl/get_log.php" />
-        <option value="$PROJECT_DIR$/ctrl/put_log.php" />
-        <option value="&lt;1da66262-1000-45bc-b442-461ba8f5cbfa&gt;/view/work_log/js/main.js" />
         <option value="$PROJECT_DIR$/core/lib/model/LogModel.php" />
         <option value="$PROJECT_DIR$/core/lib/MyDB.php" />
+        <option value="$PROJECT_DIR$/core/lib/model/RoomModel.php" />
+        <option value="$PROJECT_DIR$/ctrl/get_room.php" />
+        <option value="$PROJECT_DIR$/ctrl/put_log.php" />
+        <option value="$PROJECT_DIR$/ctrl/get_all_room.php" />
+        <option value="&lt;1da66262-1000-45bc-b442-461ba8f5cbfa&gt;/view/work_log/js/main.js" />
+        <option value="&lt;1da66262-1000-45bc-b442-461ba8f5cbfa&gt;/view/work_log/index.html" />
+        <option value="$PROJECT_DIR$/ctrl/api.php" />
       </list>
     </option>
   </component>
@@ -288,6 +258,11 @@
               <item name="html" type="462c0819:PsiDirectoryNode" />
               <item name="ctrl" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="html" type="b2602c69:ProjectViewProjectNode" />
+              <item name="html" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -304,7 +279,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect" value="MariaDB" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/test/UnitTest" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/img" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -313,9 +288,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Github\html\img" />
       <recent name="E:\Github\html\view\hottery\login\assets\js" />
       <recent name="C:\Users\陆文辉\Desktop\work_log\css" />
-      <recent name="E:\Github\html\img" />
       <recent name="C:\Users\陆文辉\Desktop\日志\css\zTreeStyle\img" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -366,7 +341,7 @@
       <workItem from="1554174653258" duration="4687000" />
       <workItem from="1554192017959" duration="22213000" />
       <workItem from="1554221239207" duration="1438000" />
-      <workItem from="1554268921445" duration="26582000" />
+      <workItem from="1554268921445" duration="30012000" />
     </task>
     <task id="LOCAL-00001" summary="Configure and Log Class is complete.&#10;Reformat code.">
       <created>1553609647168</created>
@@ -403,11 +378,18 @@
       <option name="project" value="LOCAL" />
       <updated>1554283665480</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="login和register通过测试">
+      <created>1554302777184</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1554302777184</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="170719000" />
+    <option name="totallyTimeSpent" value="174149000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -430,7 +412,7 @@
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32905984" />
       <window_info anchor="bottom" id="Terminal" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" weight="0.32905984" />
-      <window_info anchor="right" id="Remote Host" order="0" visible="true" weight="0.1687966" />
+      <window_info active="true" anchor="right" id="Remote Host" order="0" visible="true" weight="0.1687966" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.24973376" />
@@ -473,7 +455,8 @@
     <MESSAGE value="我也不知道说啥好,验收后的版本" />
     <MESSAGE value="采用单例模式的数据库,login还没写完" />
     <MESSAGE value="采用单例模式的数据库,login还没写完&#10;&#10;Signed-off-by: youDad &lt;1632083718@qq.com&gt;" />
-    <option name="LAST_COMMIT_MESSAGE" value="采用单例模式的数据库,login还没写完&#10;&#10;Signed-off-by: youDad &lt;1632083718@qq.com&gt;" />
+    <MESSAGE value="login和register通过测试" />
+    <option name="LAST_COMMIT_MESSAGE" value="login和register通过测试" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/view/hottery/login/assets/js/check.js">
@@ -562,13 +545,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/work_log/css/demo.css" />
-    <entry file="file://$PROJECT_DIR$/ctrl/get_all_room.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="1" lean-forward="true" selection-end-line="11" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ctrl/join_room.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -587,13 +563,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="37" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ctrl/get_room.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="9" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -697,13 +666,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ctrl/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="27" lean-forward="true" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ctrl/register.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -715,13 +677,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/lib/model/RoomModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -802,13 +757,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/lib/model/LogModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="47" column="46" lean-forward="true" selection-start-line="47" selection-start-column="46" selection-end-line="47" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ctrl/get_log.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -816,24 +764,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ctrl/put_log.php">
+    <entry file="file://$PROJECT_DIR$/core/lib/MyDB.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="73" selection-start-line="15" selection-start-column="73" selection-end-line="15" selection-end-column="73" />
+        <state relative-caret-position="380">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/lib/model/UserModel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="46" lean-forward="true" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
+        <state relative-caret-position="390">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/lib/MyDB.php">
+    <entry file="file://$PROJECT_DIR$/ctrl/put_log.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="755">
-          <caret line="70" column="5" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
+        <state relative-caret-position="225">
+          <caret line="15" column="66" lean-forward="true" selection-start-line="15" selection-start-column="66" selection-end-line="15" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/lib/model/LogModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-116">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ctrl/get_all_room.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ctrl/get_room.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="25" lean-forward="true" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/lib/model/RoomModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="44" lean-forward="true" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ctrl/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="559">
+          <caret line="76" column="49" selection-start-line="76" selection-start-column="49" selection-end-line="76" selection-end-column="49" />
         </state>
       </provider>
     </entry>
