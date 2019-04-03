@@ -36,3 +36,8 @@ include 'common/includer.php';
 spl_autoload_register('\core\Apis::load');
 
 \core\Apis::run();
+
+function model($name){
+    $className = "\\core\\lib\\model\\".$name."Model";
+    return $className::getIns();
+}
