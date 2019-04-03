@@ -1,5 +1,5 @@
 <?php
-return array(
+return [
     'DSN' => 'mysql:host=localhost;dbname=test',
     'USERNAME' => 'root',
     'PASSWORD' => 'mArIaDb@Ixv',
@@ -74,4 +74,4 @@ return array(
                 cdkey CHAR(8) NOT NULL
             );",
     ],
-);
+];

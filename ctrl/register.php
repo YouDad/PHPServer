@@ -6,10 +6,23 @@ class register extends \core\ApiCtrl
 {
     public function main()
     {
-        $model = new \core\lib\model();
-        if (!isset($_GET['username']) ||
-            !isset($_GET['password']))
-            return array('result' => 'failure');
-        return $model->add_user($_GET['username'], $_GET['password']);
+        $_1 = $_GET['username'];
+        $_2 = $_GET['password'];
+        $response = ['result' => 'failure'];
+
+        if (!isset($_1) || !isset($_2)) {
+            return $response;
+        }
+
+        if (!model('User')->add_user($_1, $_2)) {
+            return $response;
+        }
+
+        $response['result'] = 'success';
+
+        $uid = model('User')->get_uid($_1);
+        $response['cookie'] = model('Cookie')->gen_cookie($uid);
+
+        return $response;
     }
 }

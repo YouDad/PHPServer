@@ -17,7 +17,7 @@ class UserModel extends \core\lib\MyDB
      */
     public function check_user($username, $password, $time)
     {
-        $res = $this->select(T_USER,'*', 'username=' . $username);
+        $res = $this->select(T_USER, '*', 'username=' . $username);
         $v = $res->fetchAll();
         if (count($v) == 0)
             return false;
@@ -36,7 +36,7 @@ class UserModel extends \core\lib\MyDB
      */
     public function add_user($username, $password, $level = null, $phone_number = null)
     {
-        $res = $this->select(T_USER,'*', 'username=' . $username);
+        $res = $this->select(T_USER, '*', 'username=' . $username);
         if (count($res->fetchAll()) != 0)
             return false;
         $columns = sprintf('(username,pass_md5%s%s)',
@@ -53,12 +53,20 @@ class UserModel extends \core\lib\MyDB
     }
 
     /**
-     * @param $username:hottery_user.username
+     * @param $username :hottery_user.username
      * @return mixed
      * @TODO: 测试返回值类型
      */
     public function get_uid($username)
     {
         return $this->select(T_UID, 'uid', 'username=' . $username)->fetchAll()[0][0];
+    }
+
+    /**
+     * 为测试写的,删除固定用户1的函数
+     */
+    public function delete_user_for_test()
+    {
+        return $this->delete(T_USER, 'username=1');
     }
 }

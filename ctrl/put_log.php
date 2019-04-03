@@ -6,13 +6,16 @@ class put_log extends \core\ApiCtrl
 {
     public function main()
     {
-        if (!isset($_POST['i']) ||
-            !isset($_POST['c']) ||
-            !isset($_POST['p'])) {
-            $ret['result'] = 'failure';
-            return $ret;
-        } else {
-            return model('Log')->update_log($_POST['i'], $_POST['c'], $_POST['p']);
+        $response = ['result' => 'failure'];
+        $_1 = $_POST['i'];
+        $_2 = $_POST['c'];
+        $_3 = $_POST['p'];
+        if (isset($_1) && isset($_2) && isset($_3)) {
+            if (model('Log')->update_log($_1, $_2, $_3)) {
+                $response['result'] = 'success';
+                $response['content'] = model('Log')->get_log($_GET['i']);
+            }
         }
+        return $response;
     }
 }

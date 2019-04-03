@@ -8,27 +8,33 @@ class api extends \core\ApiCtrl
     {
         echo '<style type="text/css">pre{font-size:32pt !important;}</style>';
         dump('前面有减号的代表还在开发,用不了');
-        $api['user'] = array(
-            'login' => array(
+        $api['user'] = [
+            'login' => [
                 '安全性' => '有',
                 '请求类型' => 'GET',
-                '参数需求' => array(
-                    'username' => 'string not null (用户名)',
-                    'password' => 'string not null (加密后的密码)',
+                '参数需求' => [
+                    'username' => 'CHAR(16) not null (用户名)',
+                    'password' => 'CHAR(32) not null (加密后的密码)',
                     'time' => 'integer not null (时间戳)',
-                ),
-                '响应格式' => '{"result":"success","cookie":"test_cookie"} or {"result":"failure"}'
-            ),
-            'register' => array(
+                ],
+                '响应格式' => [
+                    '成功的情况' => '{"result":"success","cookie":"128位长的字符串"}',
+                    '失败的情况' => '{"result":"failure"}',
+                ]
+            ],
+            'register' => [
                 '安全性' => '无',
                 '请求类型' => 'GET',
-                '参数需求' => array(
-                    'username' => 'string not null (用户名)',
-                    'password' => 'string not null (加密后的密码)'
-                ),
-                '响应格式' => '{"result":"success","cookie":"test_cookie"} or {"result":"failure"}'
-            )
-        );
+                '参数需求' => [
+                    'username' => 'CHAR(16) not null (用户名)',
+                    'password' => 'CHAR(32) not null (加密后的密码)'
+                ],
+                '响应格式' => [
+                    '成功的情况' => '{"result":"success","cookie":"128位长的字符串"}',
+                    '失败的情况' => '{"result":"failure"}',
+                ]
+            ]
+        ];
         $api['room'] = array(
             'get_all_room' => array(
                 '安全性' => '不需要',

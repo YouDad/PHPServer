@@ -6,16 +6,30 @@ class login extends \core\ApiCtrl
 {
     public function main()
     {
-        $ret['result'] = 'failure';
-        if (!isset($_GET['username']) ||
-            !isset($_GET['password']) ||
-            !isset($_GET['time']))
-            return $ret;
-        $res = model('User')->check_user($_GET['username'], $_GET['password'], $_GET['time']);
-        if (!$res)
-            return $ret;
-        $ret['result'] = 'success';
+        $_1 = $_GET['username'];
+        $_2 = $_GET['password'];
+        $_3 = $_GET['time'];
+        $response['result'] = 'failure';
 
-        return $ret;
+        if (!isset($_1) || !isset($_2) || !isset($_3)) {
+            return $response;
+        }
+
+        $_4 = get_server_time();
+        $_5 = $_SERVER['REQUEST_TIME'];
+        if (abs($_4 - $_5) > 3) {
+            return ['result' => 'timeout'];
+        }
+
+        if (!model('User')->check_user($_1, $_2, $_3)) {
+            return $response;
+        }
+
+        $response['result'] = 'success';
+
+        $uid = model('User')->get_uid($_1);
+        $response['cookie'] = model('Cookie')->gen_cookie($uid);
+
+        return $response;
     }
 }

@@ -25,7 +25,7 @@ class LogModel extends \core\lib\MyDB
     {
         //TODO 检查log是否饱满
         $res = $this->select()->fetchAll();
-        $now = $this->get_time() / 24 / 60 / 60;
+        $now = get_time() / 24 / 60 / 60;
         sscanf($res[0]['day'], '%d', $i);
         $last_content = $res[0]['content'];
         for ($j = 0; $i <= $now; $i++) {
@@ -46,9 +46,7 @@ class LogModel extends \core\lib\MyDB
     {
         $this->check_log();
         $v = $this->select('day')->fetchAll();
-        $ret['result'] = "success";
-        $ret['size'] = count($v);
-        return $ret;
+        return count($v);
     }
 
     public function get_log($i)
@@ -56,21 +54,15 @@ class LogModel extends \core\lib\MyDB
         $this->check_log();
         $res = $this->select('content', 'day=' . $i);
         $v = $res->fetchAll();
-        if (count($v) == 0)
-            $ret['result'] = "failure";
-        else {
-            $ret['result'] = "success";
-            $ret['content'] = $v[0]['content'];
-        }
-        return $ret;
+        return $v[0]['content'];
     }
 
     public function update_log($i, $c, $p)
     {
         $this->check_log();
         if ($p != md5('123456789'))
-            return array('result' => 'failure');
+            return false;
         $this->update('content', "'" . $c . "'", 'day=' . $i);
-        return array('result' => 'success');
+        return true;
     }
 }
