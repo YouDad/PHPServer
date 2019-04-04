@@ -9,6 +9,6 @@ class index extends \core\ApiCtrl
         echo '<base href="view/hottery/main/" />';
         $path = APIS . 'view/hottery/main/home.html';
         include($path);
-        return '昭哥牛逼';
+        return 'Zhao Ge Niu B';
     }
 }
