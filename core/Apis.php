@@ -1,6 +1,7 @@
 <?php
 
 namespace core;
+
 use core\lib as lib;
 
 class Apis
@@ -13,6 +14,16 @@ class Apis
         lib\log::init();
         # load ctrl, respond request.
         $route = new lib\route();
+
+        if ($route->is_img) {
+            $url = APIS . 'img/' . $route->img_url;
+
+            $img = file_get_contents($url, true);
+            header("Content-Type: image/jpeg;text/html; charset=utf-8");
+            echo $img;
+            exit;
+        }
+
         $ctrlClass = $route->ctrl;
         $ctrlFile = CTRL . $ctrlClass . '.php';
         if (!is_file($ctrlFile)) {
@@ -23,7 +34,10 @@ class Apis
         include $ctrlFile;
         $className = '\\app\\ctrl\\' . $ctrlClass;
         $ctrl = new $className();
-        echo json_encode($ctrl->main());
+
+        $response = $ctrl->main();
+        if ($response !== null)
+            echo json_encode($response);
 
     }
 
