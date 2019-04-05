@@ -77,11 +77,11 @@ class api extends \core\ApiCtrl
                     '房间权限异常' => '{"result":"invalid room"}'
                 ]
             ],
-            '-add_img' => [
+            'add_img' => [
                 '安全性' => '',
                 '请求类型' => 'POST',
                 '参数需求' => '使用form表单',
-                '参数说明' => '实现的人与后端面对面交流',
+                '参数说明' => '需要实现的话与后端面对面交流',
             ],
             '-add_room' => [
                 '安全性' => '无',
@@ -172,16 +172,51 @@ class api extends \core\ApiCtrl
                 '参数需求' => [
                     'cookie' => 'string not null',
                     'rid' => 'INTEGER not null',
-                    'cdkey' => 'string'
+                    'cdkey' => 'string',
                 ],
                 '响应格式' => [
                     '已经报名的情况' => '{"result":"already"}',
                     '成功的情况' => '{"result":"success"}',
                     '错误的CDKEY' => '{"result":"invalid key"}',
                     '错误的COOKIE' => '{"result":"invalid cookie"}',
-                    '参数不完整' => '{"result":"failure"}'
+                    '参数不完整' => '{"result":"failure"}',
                 ]
             ]
+        ];
+        $api['history'] = [
+            '-get_pending_history' => [
+                '安全性' => '有',
+                '请求类型' => 'GET',
+                '参数需求' => [
+                    'cookie' => 'string not null',
+                ],
+                '响应格式' => [
+                    '成功的情况' => '{"result":"success","rid":"INTEGER","title":"CHAR(32)"}',
+                    '错误的COOKIE' => '{"result":"invalid cookie"}',
+                ]
+            ],
+            '-get_over_history' => [
+                '安全性' => '有',
+                '请求类型' => 'GET',
+                '参数需求' => [
+                    'cookie' => 'string not null',
+                ],
+                '响应格式' => [
+                    '成功的情况' => '{"result":"success","rid":"INTEGER","title":"CHAR(32)"}',
+                    '错误的COOKIE' => '{"result":"invalid cookie"}',
+                ]
+            ],
+            '-get_got_history' => [
+                '安全性' => '有',
+                '请求类型' => 'GET',
+                '参数需求' => [
+                    'cookie' => 'string not null',
+                ],
+                '响应格式' => [
+                    '成功的情况' => '{"result":"success","rid":"INTEGER","pid":"INTEGER"}',
+                    '错误的COOKIE' => '{"result":"invalid cookie"}',
+                ]
+            ],
         ];
         foreach ($api as $k => $v) {
             dump($k);

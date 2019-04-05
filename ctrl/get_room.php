@@ -12,8 +12,8 @@ class get_room extends \core\ApiCtrl
             return $response;
         }
 
-        $response['result'] = 'success';
-        $response['option'] = model('Room')->get_room($_1);
+        $response['result'] = "success";
+        $response['option'] = model("Room")->get_room($_1);
 
         return $response;
     }

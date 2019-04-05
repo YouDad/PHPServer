@@ -16,7 +16,7 @@ class conf
         if (isset(self::$conf[$file])) {
             return self::$conf[$file][$name];
         }
-        $path = CORE . 'config/' . $file . '.php';
+        $path = CORE . "config/" . $file . ".php";
         if (!is_file($path)) {
             throw new \Exception("Can't find configure file:" . $path);
         }
@@ -33,7 +33,7 @@ class conf
         if (isset(self::$conf[$file])) {
             return self::$conf[$file];
         }
-        $path = CORE . 'config/' . $file . '.php';
+        $path = CORE . "config/" . $file . ".php";
         if (!is_file($path)) {
             throw new \Exception("Can't find configure file:" . $path);
         }

@@ -9,7 +9,7 @@ class login extends \core\ApiCtrl
         $_1 = $_GET['username'];
         $_2 = $_GET['password'];
         $_3 = $_GET['time'];
-        $response['result'] = 'failure';
+        $response['result'] = "failure";
 
         if (!isset($_1) || !isset($_2) || !isset($_3)) {
             return $response;
@@ -21,14 +21,14 @@ class login extends \core\ApiCtrl
             return ['result' => 'timeout'];
         }
 
-        if (!model('User')->check_user($_1, $_2, $_3)) {
+        if (!model("User")->check_user($_1, $_2, $_3)) {
             return $response;
         }
 
-        $response['result'] = 'success';
+        $response['result'] = "success";
 
-        $uid = model('User')->get_uid($_1);
-        $response['cookie'] = model('Cookie')->gen_cookie($uid);
+        $uid = model("User")->get_uid($_1);
+        $response['cookie'] = model("Cookie")->gen_cookie($uid);
 
         return $response;
     }

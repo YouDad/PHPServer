@@ -15,18 +15,18 @@ class route
          * 2.requests URL parameters
          * 3.return corresponding ctrl and method
          */
-        if (isset($_SERVER)) \core\lib\log::log(serialize($_SERVER), '$_SERVER');
-        if (isset($_GET)) \core\lib\log::log(serialize($_GET), '$_GET');
-        if (isset($_POST)) \core\lib\log::log(serialize($_POST), '$_POST');
+        if (isset($_SERVER)) \core\lib\log::log(serialize($_SERVER), "$_SERVER");
+        if (isset($_GET)) \core\lib\log::log(serialize($_GET), "$_GET");
+        if (isset($_POST)) \core\lib\log::log(serialize($_POST), "$_POST");
 
         $url = $_SERVER['REQUEST_URI'];
 
-        if (!isset($url) || $url === '/') {
-            $this->ctrl = conf::get('CTRL', 'route');
+        if (!isset($url) || $url === "/") {
+            $this->ctrl = conf::get("CTRL", "route");
             return;
         }
 
-        $arr = explode("/", trim($url, '/'));
+        $arr = explode("/", trim($url, "/"));
 
         if (count($arr) === 1 && strlen($arr[0]) === 32) {
             if (!$this->is_exist_ctrl($arr[0])) {
@@ -39,12 +39,12 @@ class route
         }
 
         if (count($arr) == 1) {
-            $arr = explode('?', $arr[0]);
+            $arr = explode("?", $arr[0]);
         }
         if (isset($arr[0]) and $this->is_exist_ctrl($arr[0])) {
             $this->ctrl = $arr[0];
         } else {
-            $this->ctrl = conf::get('CTRL', 'route');
+            $this->ctrl = conf::get("CTRL", "route");
         }
 
         # /id/1/str/asd => ['id']=1 , ['str']=asd
@@ -61,12 +61,12 @@ class route
 
     private function is_exist_ctrl($ctrl_name)
     {
-        return is_file(CTRL . $ctrl_name . '.php');
+        return is_file(CTRL . $ctrl_name . ".php");
     }
 
     private function is_exist_img($img_name)
     {
-        return is_file(APIS . 'img/' . $img_name);
+        return is_file(APIS . "img/" . $img_name);
     }
 }
 

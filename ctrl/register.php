@@ -14,14 +14,14 @@ class register extends \core\ApiCtrl
             return $response;
         }
 
-        if (!model('User')->add_user($_1, $_2)) {
+        if (!model("User")->add_user($_1, $_2)) {
             return $response;
         }
 
-        $response['result'] = 'success';
+        $response['result'] = "success";
 
-        $uid = model('User')->get_uid($_1);
-        $response['cookie'] = model('Cookie')->gen_cookie($uid);
+        $uid = model("User")->get_uid($_1);
+        $response['cookie'] = model("Cookie")->gen_cookie($uid);
 
         return $response;
     }

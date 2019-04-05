@@ -8,16 +8,16 @@ const T_UID = 'hottery_uid';
 class UserModel extends \core\lib\MyDB
 {
     /**
-     * @param $username
-     * @param $password
-     * @param $time
-     * @return bool
+     * @param string $username
+     * @param string $password
+     * @param int $time
+     * @return boolean
      *  1.true 登录成功
      *  2.false 登录失败
      */
     public function check_user($username, $password, $time)
     {
-        $res = $this->select(T_USER, '*', 'username=' . $username);
+        $res = $this->select(T_USER, "*", "username=" . $username);
         $v = $res->fetchAll();
         if (count($v) == 0)
             return false;
@@ -26,40 +26,41 @@ class UserModel extends \core\lib\MyDB
     }
 
     /**
-     * @param $username
-     * @param $password
+     * @param string $username
+     * @param string $password
      * @param null $level
      * @param null $phone_number
-     * @return bool
+     * @return boolean
      *  1.true 注册成功
      *  2.false 注册失败
      */
     public function add_user($username, $password, $level = null, $phone_number = null)
     {
-        $res = $this->select(T_USER, '*', 'username=' . $username);
+        $where = "username=" . $username;
+        $res = $this->select(T_USER, "*", $where);
         if (count($res->fetchAll()) != 0)
             return false;
-        $columns = sprintf('(username,pass_md5%s%s)',
-            $level === null ? "" : ",level",
-            $phone_number === null ? "" : ",phone_number");
-        $values = sprintf('(\'%s\',\'%s\'%s%s)',
+        $columns = sprintf("(username,pass_md5%s%s)",
+            reserve($level, ",level"), reserve($phone_number, ",phone_number"));
+        $values = sprintf("(%s,%s%s%s)",
             $username, $password,
-            $level === null ? "" : "," . $level,
-            $phone_number === null ? "" : ",'" . $phone_number . "'");
+            reserve($level, ",'%s'", $level),
+            reserve($phone_number, ",'%s'", $phone_number));
         $this->insert(T_USER, $columns, $values);
-        $this->insert(T_UID, '(username)',
-            sprintf('(\'%s\')', $username));
+        $values = sprintf("('%s')", $username);
+        $this->insert(T_UID, "(username)", $values);
         return true;
     }
 
     /**
      * @param $username :hottery_user.username
-     * @return mixed
-     * @TODO: 测试返回值类型
+     * @return int
      */
     public function get_uid($username)
     {
-        return $this->select(T_UID, 'uid', 'username=' . $username)->fetchAll()[0][0];
+        $where = "username=" . $username;
+        $t = $this->select(T_UID, "uid", $where);
+        return $t->fetchAll()[0][0];
     }
 
     /**
@@ -67,6 +68,6 @@ class UserModel extends \core\lib\MyDB
      */
     public function delete_user_for_test()
     {
-        return $this->delete(T_USER, 'username=1');
+        return $this->delete(T_USER, "username=1");
     }
 }

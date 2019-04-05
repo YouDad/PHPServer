@@ -6,8 +6,8 @@ class get_all_room extends \core\ApiCtrl
 {
     public function main()
     {
-        $response['result'] = 'success';
-        $response['option'] = model('Room')->get_all_room();
+        $response['result'] = "success";
+        $response['option'] = model("Room")->get_all_room();
 
         return $response;
     }

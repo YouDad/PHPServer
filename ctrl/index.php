@@ -6,9 +6,9 @@ class index extends \core\ApiCtrl
 {
     public function main()
     {
-        echo '<base href="view/hottery/main/" />';
-        $path = APIS . 'view/hottery/main/home.html';
+        echo "<base href='view/hottery/main/' />";
+        $path = APIS . "view/hottery/main/home.html";
         include($path);
-        return 'Zhao Ge Niu B';
+        return null;
     }
 }

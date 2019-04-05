@@ -17,7 +17,7 @@ class add_room extends \core\ApiCtrl
             !isset($_GET['access']) ||
             !isset($_GET['img']) ||
             !isset($_GET['other_option']))
-            return array('result' => 'failure');
+            return ['result' => 'failure'];
         return $model->add_room(
             $_GET['title'],
             $_GET['start_time'],

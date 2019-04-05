@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="ixv" read-only="true" uuid="4fdf4818-3462-4b19-a537-52b07101c4df">
+    <data-source source="LOCAL" name="ixv" uuid="4fdf4818-3462-4b19-a537-52b07101c4df">
       <driver-ref>mariadb</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>

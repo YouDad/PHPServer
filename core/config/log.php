@@ -1,7 +1,7 @@
 <?php
-return array(
+return [
     'DRIVE' => 'file',
-    'OPTION' => array(
-        'PATH' => APIS . 'log/'
-    ),
-);
+    'OPTION' => [
+        'PATH' => APIS . 'log/',
+    ],
+];

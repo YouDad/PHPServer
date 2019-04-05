@@ -14,7 +14,7 @@ class CookieModel extends \core\lib\MyDB
     private function clear_cookie($uid = -1)
     {
         $this->delete(T_COOKIE,
-            sprintf('valid_time<%d OR uid=%d', get_time(), $uid));
+            sprintf("valid_time<%d OR uid=%d", get_time(), $uid));
     }
 
     /**
@@ -28,7 +28,7 @@ class CookieModel extends \core\lib\MyDB
     {
         $this->clear_cookie();
         $res = $this->select(T_COOKIE, 'uid',
-            'cookie=\'' . $cookie . "'")->fetchAll();
+            "cookie='" . $cookie . "'")->fetchAll();
         if (count($res) == 0) {
             return -1;
         } else {
@@ -45,8 +45,8 @@ class CookieModel extends \core\lib\MyDB
     {
         $this->clear_cookie($uid);
         $cookie = md5(rand()) . md5(rand()) . md5(rand()) . md5(rand());
-        $this->insert(T_COOKIE, '(uid,cookie,valid_time)',
-            sprintf('(\'%s\',\'%s\',%d)',
+        $this->insert(T_COOKIE, "(uid,cookie,valid_time)",
+            sprintf("('%s','%s',%d)",
                 $uid, $cookie, get_time() + 24 * 60 * 60 * 3));
         return $cookie;
     }
