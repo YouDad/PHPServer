@@ -22,8 +22,8 @@ class PrizeModel extends \core\lib\MyDB
             reserve($prob, ",prob"),
             reserve($img, ",img"));
         $values = sprintf("(%d,'%s','%s',%d%s%s)", $rid, $name, $award, $number,
-            reserve($prob, ",'%s'", $prob),
-            reserve($img, ",'%s'", $img));
+            reserve($prob, ",'$prob'"),
+            reserve($img, ",'$img'"));
         return $this->insert(T_PRIZE, $columns, $values);
     }
 
@@ -35,5 +35,17 @@ class PrizeModel extends \core\lib\MyDB
     public function get_prize($rid)
     {
         return $this->select(T_PRIZE, "*", "rid=" . $rid);
+    }
+
+    public function check_prize($pid, $rid)
+    {
+        $res = $this->select(T_PRIZE, "*", "rid=$rid AND pid=$pid");
+        $res = $res->fetchAll();
+        return 1 === count($res);
+    }
+
+    public function del_prize($pid)
+    {
+        return $this->delete(T_PRIZE, "pid=" . $pid);
     }
 }

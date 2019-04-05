@@ -8,18 +8,44 @@ class del_prize extends \core\ApiCtrl
 {
     public function main()
     {
-        $_1 = $_POST['cookie'];
-        $_2 = $_POST['rid'];
-        $_3 = $_POST['pid'];
-        $_4 = $_SERVER['REQUEST_TIME'];
+        //检查参数存在性,参数简短化
         $response['result'] = "failure";
+        $_METHOD = $_POST;
+        try {
+            $_0 = $_METHOD['cookie'];
+            $_1 = $_METHOD['rid'];
+            $_2 = $_METHOD['pid'];
+            $_3 = $_SERVER['REQUEST_TIME'];
+        } catch (\Exception $exception) {
+            //必选参数不能为空
+            return $response;
+        }
 
+        //检查cookie是否正确
+        $uid = model("Cookie")->get_user($_0);
+        if ($uid < 0) {
+            $response['result'] = "invalid cookie";
+            return $response;
+        }
 
-        //TODO 判断这个cookie是否合法
-        //TODO 判断这个房间是否合法
-        //TODO 判断这个cookie是否是这个房间的创建者
-        //TODO 判断奖项号是否合法
-        //TODO 判断时间是否合法
-        //TODO 删除奖项
+        //检查是否是uid创建的rid这个房间
+        $res = model("History")->get_history($_1, his::MAKING, $_3);
+        $res = $res->fetchAll();
+        if (count($res) !== 1 || $res[0]['uid'] != $uid) {
+            $response['result'] = "failure";
+            return $response;
+        }
+
+        //检查奖项号
+        if (!model("Prize")->check_prize($_2, $_1)) {
+            $response['result'] = "invalid prize";
+            return $response;
+        }
+
+        //删除奖项
+        model("Prize")->del_prize($_2);
+
+        $response['result'] = "success";
+        return $response;
     }
 }

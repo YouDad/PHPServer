@@ -6,8 +6,6 @@ class api extends \core\ApiCtrl
 {
     public function main()
     {
-        echo '<style type="text/css">pre{font-size:32pt !important;}</style>';
-        dump('前面有减号的代表还在开发,用不了');
         $api['user'] = [
             'login' => [
                 '安全性' => '有',
@@ -97,7 +95,7 @@ class api extends \core\ApiCtrl
                     '其他情况' => '{"result":"failure"}',
                 ],
             ],
-            '-del_prize' => [
+            'del_prize' => [
                 '安全性' => '有',
                 '请求类型' => 'POST',
                 '参数需求' => [
@@ -113,8 +111,8 @@ class api extends \core\ApiCtrl
                 '响应格式' => [
                     '成功的情况' => '{"result":"success"}',
                     '创建者cookie失效' => '{"result":"invalid cookie"}',
-                    '房间权限异常' => '{"result":"invalid room"}',
                     '无效的奖项号' => '{"result":"invalid prize"}',
+                    '其他情况' => '{"result":"failure"}',
                 ],
             ],
             '-add_room' => [
@@ -266,9 +264,15 @@ class api extends \core\ApiCtrl
                 ]
             ],
         ];
-        foreach ($api as $k => $v) {
-            dump($k);
-            dump($v);
+        if (!isset($_POST['json'])) {
+            echo '<style type="text/css">pre{font-size:32pt !important;}</style>';
+            dump('前面有减号的代表还在开发,用不了');
+            foreach ($api as $k => $v) {
+                dump($k);
+                dump($v);
+            }
+            return null;
         }
+        return $api;
     }
 }
