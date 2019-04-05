@@ -25,7 +25,7 @@ class api extends \core\ApiCtrl
                 '响应格式' => [
                     '成功的情况' => '{"result":"success","cookie":"CHAR(128)"}',
                     '失败的情况' => '{"result":"failure"}',
-                ]
+                ],
             ],
             'register' => [
                 '安全性' => '无',
@@ -41,10 +41,10 @@ class api extends \core\ApiCtrl
                 '响应格式' => [
                     '成功的情况' => '{"result":"success","cookie":"CHAR(128)"}',
                     '失败的情况' => '{"result":"failure"}',
-                ]
+                ],
             ],
             '-register_by_email' => [
-                '安全性' => '有'
+                '安全性' => '有',
             ],
         ];
         $api['room'] = [
@@ -60,28 +60,51 @@ class api extends \core\ApiCtrl
                         "access":"1",
                         "img":"img\/gg.jpg",
                         "other_option":"other_option"
-                    },...]"}'
-                ]
-            ],
-            '-get_room' => [
-                '安全性' => '不需要',
-                '请求类型' => 'GET',
-                '参数需求' => [
-                    'rid' => 'INTEGER not null'
+                    },...]"}',
                 ],
-                '参数说明' => [
-                    'rid' => '房间号,能在get_all_room中获得',
-                ],
-                '响应格式' => [
-                    '成功的情况' => '{"result":"success","option":"{obj...}"}',
-                    '房间权限异常' => '{"result":"invalid room"}'
-                ]
             ],
             'add_img' => [
                 '安全性' => '',
                 '请求类型' => 'POST',
                 '参数需求' => '使用form表单',
                 '参数说明' => '需要实现的话与后端面对面交流',
+            ],
+            '-add_prize' => [
+                '安全性' => '有',
+                '请求类型' => 'POST',
+                '参数需求' => [
+                    'cookie' => 'CHAR(128) not null',
+                    'rid' => 'INTEGER not null',
+                ],
+                '参数说明' => [
+                    'cookie' => '创建者的cookie',
+                    'rid' => '房间号,从add_room中获得',
+                ],
+                '响应格式' => [
+                    '成功的情况' => '{"result":"success"}',
+                    '创建者cookie失效' => '{"result":"invalid cookie"}',
+                    '房间权限异常' => '{"result":"invalid room"}',
+                ],
+            ],
+            '-del_prize'=>[
+                '安全性' => '有',
+                '请求类型' => 'POST',
+                '参数需求' => [
+                    'cookie' => 'CHAR(128) not null',
+                    'rid' => 'INTEGER not null',
+                    'pid' => 'INTEGER not null',
+                ],
+                '参数说明' => [
+                    'cookie' => '创建者的cookie',
+                    'rid' => '房间号,从get_room中获得',
+                    'pid' => '奖项号,从get_room中获得',
+                ],
+                '响应格式' => [
+                    '成功的情况' => '{"result":"success"}',
+                    '创建者cookie失效' => '{"result":"invalid cookie"}',
+                    '房间权限异常' => '{"result":"invalid room"}',
+                    '无效的奖项号' => '{"result":"invalid prize"}',
+                ],
             ],
             '-add_room' => [
                 '安全性' => '无',
@@ -123,6 +146,20 @@ class api extends \core\ApiCtrl
                     '权限不足的情况' => '{"result":"invalid access"}',
                     '图片路径不正确' => '{"result":"invalid img"}',
                     '附加信息过多' => '{"result":"invalid other_option"}',
+                ],
+            ],
+            '-get_room' => [
+                '安全性' => '不需要',
+                '请求类型' => 'GET',
+                '参数需求' => [
+                    'rid' => 'INTEGER not null',
+                ],
+                '参数说明' => [
+                    'rid' => '房间号,能在get_all_room中获得',
+                ],
+                '响应格式' => [
+                    '成功的情况' => '{"result":"success","option":"{obj...}"}',
+                    '房间权限异常' => '{"result":"invalid room"}'
                 ],
             ],
             '-join_room' => [

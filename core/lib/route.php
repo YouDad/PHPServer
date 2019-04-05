@@ -15,9 +15,9 @@ class route
          * 2.requests URL parameters
          * 3.return corresponding ctrl and method
          */
-        if (isset($_SERVER)) \core\lib\log::log(serialize($_SERVER), "$_SERVER");
-        if (isset($_GET)) \core\lib\log::log(serialize($_GET), "$_GET");
-        if (isset($_POST)) \core\lib\log::log(serialize($_POST), "$_POST");
+        if (isset($_SERVER)) \core\lib\log::log(serialize($_SERVER), "\$_SERVER");
+        if (isset($_GET)) \core\lib\log::log(serialize($_GET), "\$_GET");
+        if (isset($_POST)) \core\lib\log::log(serialize($_POST), "\$_POST");
 
         $url = $_SERVER['REQUEST_URI'];
 
