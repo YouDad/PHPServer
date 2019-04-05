@@ -13,9 +13,9 @@ class api extends \core\ApiCtrl
                 '安全性' => '有',
                 '请求类型' => 'GET',
                 '参数需求' => [
-                    'username' => 'CHAR(16) not null',
-                    'password' => 'CHAR(32) not null',
-                    'time' => 'INTEGER not null',
+                    'username' => 'CHAR(16) NOT NULL',
+                    'password' => 'CHAR(32) NOT NULL',
+                    'time' => 'INTEGER NOT NULL',
                 ],
                 '参数说明' => [
                     'username' => '用户名',
@@ -31,8 +31,8 @@ class api extends \core\ApiCtrl
                 '安全性' => '无',
                 '请求类型' => 'GET',
                 '参数需求' => [
-                    'username' => 'CHAR(16) not null',
-                    'password' => 'CHAR(32) not null',
+                    'username' => 'CHAR(16) NOT NULL',
+                    'password' => 'CHAR(32) NOT NULL',
                 ],
                 '参数说明' => [
                     'username' => '用户名',
@@ -69,30 +69,41 @@ class api extends \core\ApiCtrl
                 '参数需求' => '使用form表单',
                 '参数说明' => '需要实现的话与后端面对面交流',
             ],
-            '-add_prize' => [
+            'add_prize' => [
                 '安全性' => '有',
                 '请求类型' => 'POST',
                 '参数需求' => [
-                    'cookie' => 'CHAR(128) not null',
-                    'rid' => 'INTEGER not null',
+                    'cookie' => 'CHAR(128) NOT NULL',
+                    'rid' => 'INTEGER NOT NULL',
+                    'name' => 'CHAR(32) NOT NULL',
+                    'award' => 'CHAR(128) NOT NULL',
+                    'number' => 'INTEGER NOT NULL',
+                    'prob' => 'FLOAT',
+                    'img' => 'CHAR(32)',
                 ],
                 '参数说明' => [
                     'cookie' => '创建者的cookie',
                     'rid' => '房间号,从add_room中获得',
+                    'name' => '奖项名("一等奖")',
+                    'award' => '奖品名("刘昭x1")',
+                    'number' => '奖项的数量(1)',
+                    'prob' => '奖项的概率(人选奖时)',
+                    'img' => '奖品图片地址(gg.jpg),应该由api获得',
                 ],
                 '响应格式' => [
                     '成功的情况' => '{"result":"success"}',
                     '创建者cookie失效' => '{"result":"invalid cookie"}',
-                    '房间权限异常' => '{"result":"invalid room"}',
+                    '无效的图片' => '{"result":"invalid img"}',
+                    '其他情况' => '{"result":"failure"}',
                 ],
             ],
-            '-del_prize'=>[
+            '-del_prize' => [
                 '安全性' => '有',
                 '请求类型' => 'POST',
                 '参数需求' => [
-                    'cookie' => 'CHAR(128) not null',
-                    'rid' => 'INTEGER not null',
-                    'pid' => 'INTEGER not null',
+                    'cookie' => 'CHAR(128) NOT NULL',
+                    'rid' => 'INTEGER NOT NULL',
+                    'pid' => 'INTEGER NOT NULL',
                 ],
                 '参数说明' => [
                     'cookie' => '创建者的cookie',
@@ -110,11 +121,11 @@ class api extends \core\ApiCtrl
                 '安全性' => '无',
                 '请求类型' => 'GET',
                 '参数需求' => [
-                    'cookie' => 'CHAR(128) not null',
-                    'title' => 'CHAR(32) not null',
-                    'start_time' => 'INTEGER not null',
-                    'access' => 'INTEGER not null',
-                    'img' => 'CHAR(32) not null',
+                    'cookie' => 'CHAR(128) NOT NULL',
+                    'title' => 'CHAR(32) NOT NULL',
+                    'start_time' => 'INTEGER NOT NULL',
+                    'access' => 'INTEGER NOT NULL',
+                    'img' => 'CHAR(32) NOT NULL',
                     'other_option' => 'CHAR(1024)',
                 ],
                 '参数说明' => [
@@ -152,7 +163,7 @@ class api extends \core\ApiCtrl
                 '安全性' => '不需要',
                 '请求类型' => 'GET',
                 '参数需求' => [
-                    'rid' => 'INTEGER not null',
+                    'rid' => 'INTEGER NOT NULL',
                 ],
                 '参数说明' => [
                     'rid' => '房间号,能在get_all_room中获得',
@@ -166,8 +177,8 @@ class api extends \core\ApiCtrl
                 '安全性' => '有',
                 '请求类型' => 'GET',
                 '参数需求' => [
-                    'cookie' => 'CHAR(128) not null',
-                    'cdkey' => 'CHAR(8) not null',
+                    'cookie' => 'CHAR(128) NOT NULL',
+                    'cdkey' => 'CHAR(8) NOT NULL',
                 ],
                 '参数说明' => [
                     'cookie' => '加入者cookie',
@@ -185,8 +196,8 @@ class api extends \core\ApiCtrl
                 '安全性' => '有',
                 '请求类型' => 'GET',
                 '参数需求' => [
-                    'cookie' => 'string not null (小饼干)',
-                    'rid' => 'INTEGER not null (房间标识号)',
+                    'cookie' => 'string NOT NULL (小饼干)',
+                    'rid' => 'INTEGER NOT NULL (房间标识号)',
                     'start' => 'INTEGER (开始接受的位置)'
                 ],
                 '响应格式' => '{"result":"success","bullet":"[obj...]"} or {"result":"invalid cookie"}',
@@ -195,9 +206,9 @@ class api extends \core\ApiCtrl
                 '安全性' => '有',
                 '请求类型' => 'POST',
                 '参数需求' => [
-                    'cookie' => 'string not null (小饼干)',
-                    'rid' => 'INTEGER not null (房间标识号)',
-                    'content' => 'CHAR(72) not null (不能超过72个字符,弹幕内容)'
+                    'cookie' => 'string NOT NULL (小饼干)',
+                    'rid' => 'INTEGER NOT NULL (房间标识号)',
+                    'content' => 'CHAR(72) NOT NULL (不能超过72个字符,弹幕内容)'
                 ],
                 '响应格式' => '{"result":"success"} or {"result":"invalid cookie"} or {"result":"failure"}',
             ]
@@ -207,8 +218,8 @@ class api extends \core\ApiCtrl
                 '安全性' => '有',
                 '请求类型' => 'GET',
                 '参数需求' => [
-                    'cookie' => 'string not null',
-                    'rid' => 'INTEGER not null',
+                    'cookie' => 'string NOT NULL',
+                    'rid' => 'INTEGER NOT NULL',
                     'cdkey' => 'string',
                 ],
                 '响应格式' => [
@@ -225,7 +236,7 @@ class api extends \core\ApiCtrl
                 '安全性' => '有',
                 '请求类型' => 'GET',
                 '参数需求' => [
-                    'cookie' => 'string not null',
+                    'cookie' => 'string NOT NULL',
                 ],
                 '响应格式' => [
                     '成功的情况' => '{"result":"success","rid":"INTEGER","title":"CHAR(32)"}',
@@ -236,7 +247,7 @@ class api extends \core\ApiCtrl
                 '安全性' => '有',
                 '请求类型' => 'GET',
                 '参数需求' => [
-                    'cookie' => 'string not null',
+                    'cookie' => 'string NOT NULL',
                 ],
                 '响应格式' => [
                     '成功的情况' => '{"result":"success","rid":"INTEGER","title":"CHAR(32)"}',
@@ -247,7 +258,7 @@ class api extends \core\ApiCtrl
                 '安全性' => '有',
                 '请求类型' => 'GET',
                 '参数需求' => [
-                    'cookie' => 'string not null',
+                    'cookie' => 'string NOT NULL',
                 ],
                 '响应格式' => [
                     '成功的情况' => '{"result":"success","rid":"INTEGER","pid":"INTEGER"}',

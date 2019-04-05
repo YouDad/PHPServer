@@ -27,8 +27,7 @@ class CookieModel extends \core\lib\MyDB
     public function get_user($cookie)
     {
         $this->clear_cookie();
-        $res = $this->select(T_COOKIE, 'uid',
-            "cookie='" . $cookie . "'")->fetchAll();
+        $res = $this->select(T_COOKIE, 'uid', "cookie='$cookie'")->fetchAll();
         if (count($res) == 0) {
             return -1;
         } else {

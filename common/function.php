@@ -1,9 +1,11 @@
 <?php
 
+use core\lib\model as M;
+
 /**
  * 返回名叫name的model
  * @param string $name
- * @return mixed
+ * @return M\UserModel|M\CookieModel|M\PrizeModel|M\LogModel|M\RoomModel|M\HistoryModel
  */
 function model($name)
 {
@@ -72,4 +74,39 @@ function reserve($var, $format, $args = null, $_ = null)
     } else {
         return sprintf($format, $args, $_);
     }
+}
+
+/**
+ * 判断$file_name是否是一个图片文件
+ * @param string $file_name 文件名即可
+ * @return bool
+ */
+function is_img_file($file_name)
+{
+    $file_name = APIS . 'img/' . $file_name;
+    $fp = fopen($file_name, "rb");
+    if (!$fp) {
+        return false;
+    }
+    $bytes6 = fread($fp, 6);
+    fclose($fp);
+    if ($fp) {
+        if ($bytes6 === false) {
+            return false;
+        }
+        if (substr($bytes6, 0, 3) == "\xff\xd8\xff") {
+            //return "image/jpeg";
+            return true;
+        }
+        if ($bytes6 == "\x89PNG\x0d\x0a") {
+            //return "image/png";
+            return true;
+        }
+        if ($bytes6 == "GIF87a" || $bytes6 == "GIF89a") {
+            //return "image/gif";
+            return true;
+        }
+        return false;
+    }
+    return false;
 }
