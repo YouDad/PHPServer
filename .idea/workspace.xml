@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1625c291-268b-4d6f-b376-3d81e8b0c22e" name="Default Changelist" comment="简化了reserve函数,多余的功能交给双引号字符串&#10;优化了HistoryModel的代码,增加了联合查询函数get_user_history&#10;优化了MyDB的写法,增强了select的功能,使得db子类能适配多表联合查询&#10;给RoomModel写了注释">
-      <change afterPath="$PROJECT_DIR$/ctrl/get_pending_history.php" afterDir="false" />
+    <list default="true" id="1625c291-268b-4d6f-b376-3d81e8b0c22e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/function.php" beforeDir="false" afterPath="$PROJECT_DIR$/common/function.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/lib/MyDB.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/lib/MyDB.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/lib/model/HistoryModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/lib/model/HistoryModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/lib/model/RoomModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/lib/model/RoomModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ctrl/add_prize.php" beforeDir="false" afterPath="$PROJECT_DIR$/ctrl/add_prize.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/lib/model/LogModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/lib/model/LogModel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ctrl/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/ctrl/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ctrl/del_prize.php" beforeDir="false" afterPath="$PROJECT_DIR$/ctrl/del_prize.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ctrl/get_pending_history.php" beforeDir="false" afterPath="$PROJECT_DIR$/ctrl/get_history.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -73,28 +69,37 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ctrl/join_room.php">
+        <entry file="file://$PROJECT_DIR$/ctrl/get_history.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="51" lean-forward="true" selection-start-line="24" selection-start-column="51" selection-end-line="24" selection-end-column="51" />
+            <state relative-caret-position="285">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ctrl/get_pending_history.php">
+        <entry file="file://$PROJECT_DIR$/core/lib/model/LogModel.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="35" column="1" lean-forward="true" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
+            <state relative-caret-position="585">
+              <caret line="39" column="25" lean-forward="true" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/core/lib/model/RoomModel.php">
+        <entry file="file://$PROJECT_DIR$/core/lib/MyDB.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="690">
-              <caret line="46" selection-start-line="46" selection-end-line="46" />
+            <state relative-caret-position="2070">
+              <caret line="138" column="35" selection-start-line="138" selection-start-column="35" selection-end-line="138" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ctrl/put_log.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -110,7 +115,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>$_GET['username']</find>
       <find>$_GET['time']</find>
       <find>var</find>
       <find>hex_md5</find>
@@ -140,6 +144,7 @@
       <find>]</find>
       <find>$_8</find>
       <find>img\/</find>
+      <find>$k</find>
     </findStrings>
     <replaceStrings>
       <replace>add_button</replace>
@@ -181,13 +186,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="&lt;1da66262-1000-45bc-b442-461ba8f5cbfa&gt;/view/work_log/index.html" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/4fdf4818-3462-4b19-a537-52b07101c4df/console.sql" />
         <option value="$PROJECT_DIR$/core/config/database.php" />
         <option value="$PROJECT_DIR$/common/get_ip.php" />
         <option value="$PROJECT_DIR$/common/get_time.php" />
         <option value="$PROJECT_DIR$/common/model.php" />
-        <option value="$PROJECT_DIR$/core/lib/model/LogModel.php" />
         <option value="$PROJECT_DIR$/ctrl/delete_user_for_test.php" />
         <option value="$PROJECT_DIR$/ctrl/get_log.php" />
         <option value="$PROJECT_DIR$/ctrl/index.php" />
@@ -227,11 +229,14 @@
         <option value="$PROJECT_DIR$/ctrl/del_prize.php" />
         <option value="$PROJECT_DIR$/ctrl/add_prize.php" />
         <option value="$PROJECT_DIR$/common/function.php" />
-        <option value="$PROJECT_DIR$/core/lib/MyDB.php" />
         <option value="$PROJECT_DIR$/core/lib/model/HistoryModel.php" />
-        <option value="$PROJECT_DIR$/ctrl/get_pending_history.php" />
-        <option value="$PROJECT_DIR$/ctrl/api.php" />
         <option value="$PROJECT_DIR$/core/lib/model/RoomModel.php" />
+        <option value="$PROJECT_DIR$/ctrl/get_over_history.php" />
+        <option value="$PROJECT_DIR$/ctrl/get_pending_history.php" />
+        <option value="$PROJECT_DIR$/ctrl/get_history.php" />
+        <option value="$PROJECT_DIR$/ctrl/api.php" />
+        <option value="$PROJECT_DIR$/core/lib/model/LogModel.php" />
+        <option value="$PROJECT_DIR$/core/lib/MyDB.php" />
       </list>
     </option>
   </component>
@@ -336,7 +341,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect" value="MariaDB" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/view/add_img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/ctrl" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -345,10 +350,10 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Github\html\ctrl" />
       <recent name="E:\Github\html\view\add_img" />
       <recent name="E:\Github\html\view\work_log\css\img" />
       <recent name="E:\Github\html\view\testapi" />
-      <recent name="E:\Github\html\ctrl" />
       <recent name="E:\Github\html" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -403,7 +408,7 @@
       <workItem from="1554364923294" duration="15554000" />
       <workItem from="1554395385624" duration="448000" />
       <workItem from="1554439821583" duration="36724000" />
-      <workItem from="1554533085796" duration="27454000" />
+      <workItem from="1554533085796" duration="29052000" />
     </task>
     <task id="LOCAL-00001" summary="Configure and Log Class is complete.&#10;Reformat code.">
       <created>1553609647168</created>
@@ -517,11 +522,18 @@
       <option name="project" value="LOCAL" />
       <updated>1554553909531</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="简化了reserve函数,多余的功能交给双引号字符串&#10;优化了HistoryModel的代码,增加了联合查询函数get_user_history&#10;优化了MyDB的写法,增强了select的功能,使得db子类能适配多表联合查询&#10;给RoomModel写了注释&#10;增加了get_pending_history的API">
+      <created>1554562630983</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1554562630984</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="261147000" />
+    <option name="totallyTimeSpent" value="262745000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -536,15 +548,15 @@
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.600863" visible="true" weight="0.21671991" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.600863" weight="0.21671991" />
       <window_info id="Structure" order="1" show_stripe_button="false" sideWeight="0.50053936" side_tool="true" weight="0.2432196" />
       <window_info id="Favorites" order="2" show_stripe_button="false" sideWeight="0.50053936" side_tool="true" weight="0.2432196" />
       <window_info id="Database" order="3" sideWeight="0.49838188" weight="0.16240682" />
-      <window_info id="Remote Host" order="4" sideWeight="0.399137" weight="0.24707136" />
+      <window_info active="true" id="Remote Host" order="4" sideWeight="0.399137" visible="true" weight="0.24707136" />
       <window_info anchor="bottom" id="SQL Generator" order="0" weight="0.32905984" />
       <window_info anchor="bottom" auto_hide="true" x="312" y="458" width="1514" height="190" id="File Transfer" order="1" type="SLIDING" weight="0.25566342" />
       <window_info anchor="bottom" id="Message" order="2" />
-      <window_info anchor="bottom" id="Find" order="3" weight="0.32901832" />
+      <window_info anchor="bottom" id="Find" order="3" weight="0.32799146" />
       <window_info anchor="bottom" id="Run" order="4" />
       <window_info anchor="bottom" id="Debug" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
@@ -623,23 +635,10 @@
     <MESSAGE value="添加了确认奖项号和删除奖项&#10;对api添加了返回json功能&#10;添加了删除奖项的API&#10;完成测试api的网页&#10;稍微美化了一下工作日志" />
     <MESSAGE value="修复了add_prize的小bug&#10;完成了add_room和get_room的API&#10;稍微修改了一下get_all_room的接口定义&#10;清洗了get_all_room的数据&#10;上线了test_img的网站" />
     <MESSAGE value="新增CdkeyModel&#10;完成get_room和join_room的API" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增CdkeyModel&#10;完成get_room和join_room的API" />
+    <MESSAGE value="简化了reserve函数,多余的功能交给双引号字符串&#10;优化了HistoryModel的代码,增加了联合查询函数get_user_history&#10;优化了MyDB的写法,增强了select的功能,使得db子类能适配多表联合查询&#10;给RoomModel写了注释&#10;增加了get_pending_history的API" />
+    <option name="LAST_COMMIT_MESSAGE" value="简化了reserve函数,多余的功能交给双引号字符串&#10;优化了HistoryModel的代码,增加了联合查询函数get_user_history&#10;优化了MyDB的写法,增强了select的功能,使得db子类能适配多表联合查询&#10;给RoomModel写了注释&#10;增加了get_pending_history的API" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/core/lib/drive/log/file.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="49" lean-forward="true" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/lib/drive/log/mysql.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/lib/conf.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -813,20 +812,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/lib/model/LogModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="647">
-          <caret line="55" column="32" lean-forward="true" selection-start-line="55" selection-start-column="32" selection-end-line="55" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ctrl/get_log.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="50" selection-start-line="17" selection-start-column="50" selection-end-line="17" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ctrl/add_img.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
@@ -862,13 +847,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ctrl/get_all_room.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ctrl/add_room.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -897,41 +875,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/function.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="66" column="3" lean-forward="true" selection-start-line="66" selection-start-column="3" selection-end-line="66" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/lib/MyDB.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="649">
-          <caret line="59" column="36" lean-forward="true" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/lib/model/HistoryModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="71" column="89" lean-forward="true" selection-start-line="71" selection-start-column="89" selection-end-line="71" selection-end-column="89" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ctrl/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="479">
-          <caret line="244" column="18" lean-forward="true" selection-start-line="244" selection-start-column="18" selection-end-line="244" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ctrl/join_room.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="51" lean-forward="true" selection-start-line="24" selection-start-column="51" selection-end-line="24" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://4fdf4818-3462-4b19-a537-52b07101c4df/schema/hottery/table/hottery_history">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -946,17 +889,87 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ctrl/get_pending_history.php">
+    <entry file="file://$PROJECT_DIR$/ctrl/get_all_room.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="1" lean-forward="true" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
+        <state relative-caret-position="135">
+          <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/lib/model/RoomModel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="46" selection-start-line="46" selection-end-line="46" />
+        <state relative-caret-position="210">
+          <caret line="14" column="68" lean-forward="true" selection-start-line="14" selection-start-column="68" selection-end-line="14" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ctrl/get_joined_history.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ctrl/join_room.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="51" lean-forward="true" selection-start-line="24" selection-start-column="51" selection-end-line="24" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/lib/model/HistoryModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-435">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ctrl/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="216" column="31" lean-forward="true" selection-start-line="216" selection-start-column="31" selection-end-line="216" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ctrl/get_log.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="34" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ctrl/get_history.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/function.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="67" column="9" selection-start-line="67" selection-start-column="9" selection-end-line="67" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ctrl/put_log.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/lib/model/LogModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="39" column="25" lean-forward="true" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/lib/MyDB.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2070">
+          <caret line="138" column="35" selection-start-line="138" selection-start-column="35" selection-end-line="138" selection-end-column="35" />
         </state>
       </provider>
     </entry>

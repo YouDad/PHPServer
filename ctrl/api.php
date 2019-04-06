@@ -221,28 +221,28 @@ class api extends \core\ApiCtrl
             ]
         ];
         $api['history'] = [
-            'get_pending_history' => [
+            'get_history' => [
                 '安全性' => '有',
                 '请求类型' => 'GET',
                 '参数需求' => [
-                    'cookie' => 'string NOT NULL',
+                    'cookie' => 'CHAR(128) NOT NULL',
+                    'type' => 'INTEGER NOT NULL',
                 ],
                 '响应格式' => [
                     '成功的情况' => '{"result":"success","history":[{"rid":"INTEGER","title":"CHAR(32)"},...]}',
                     '错误的COOKIE' => '{"result":"invalid cookie"}',
+                ],
+                '参数说明' => [
+                    'cookie' => '被查询者的cookie',
+                    'type' => [
+                        '0:创建的还未抽的房间(MAKING)',
+                        '1:创建的已抽完的房间(MADE)',
+                        '2:参加的还未抽的房间(JOINING)',
+                        '3:参加的已抽完的房间(JOINED)',
+                        '暂时没有其他值',
+                    ],
                 ],
                 '响应样例(成功)' => ["result" => "success", "history" => [["rid" => "24", "title" => "zxc"]]],
-            ],
-            'get_over_history' => [
-                '安全性' => '有',
-                '请求类型' => 'GET',
-                '参数需求' => [
-                    'cookie' => 'string NOT NULL',
-                ],
-                '响应格式' => [
-                    '成功的情况' => '{"result":"success","history":[{"rid":"INTEGER","title":"CHAR(32)"},...]}',
-                    '错误的COOKIE' => '{"result":"invalid cookie"}',
-                ],
             ],
             '-get_got_history' => [
                 '安全性' => '有',

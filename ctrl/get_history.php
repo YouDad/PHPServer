@@ -2,9 +2,7 @@
 
 namespace app\ctrl;
 
-use core\lib\model\HistoryModel as his;
-
-class get_pending_history extends \core\ApiCtrl
+class get_history extends \core\ApiCtrl
 {
     public function main()
     {
@@ -13,7 +11,8 @@ class get_pending_history extends \core\ApiCtrl
         $_METHOD = $_GET;
         try {
             $_0 = $_METHOD['cookie'];
-            $_1 = $_SERVER['REQUEST_TIME'];
+            $_1 = $_METHOD['type'];
+            $_2 = $_SERVER['REQUEST_TIME'];
         } catch (\Exception $exception) {
             //必选参数不能为空
             return $response;
@@ -26,9 +25,17 @@ class get_pending_history extends \core\ApiCtrl
             return $response;
         }
 
-        $res = model("History")->get_user_history($uid, his::JOINING, $_1);
+        //检查type是否正确
+        if (4 < $_1 || $_1 < 0) {
+            $response['result'] = "invalid type";
+            return $response;
+        }
+
+        //取历史记录
+        $res = model("History")->get_user_history($uid, $_1, $_2);
         clear_fetchAll($res);
 
+        //封装结果
         $response['result'] = "success";
         $response['history'] = $res;
         return $response;
