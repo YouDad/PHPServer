@@ -178,7 +178,7 @@ class api extends \core\ApiCtrl
                     '加入者cookie失效' => '{"result":"invalid cookie"}',
                     '无效的cdkey' => '{"result":"invalid cdkey"}',
                 ],
-            ]
+            ],
         ];
         $api['bullet'] = [
             '-get_bullet' => [
@@ -221,7 +221,7 @@ class api extends \core\ApiCtrl
             ]
         ];
         $api['history'] = [
-            '-get_pending_history' => [
+            'get_pending_history' => [
                 '安全性' => '有',
                 '请求类型' => 'GET',
                 '参数需求' => [
@@ -232,7 +232,7 @@ class api extends \core\ApiCtrl
                     '错误的COOKIE' => '{"result":"invalid cookie"}',
                 ]
             ],
-            '-get_over_history' => [
+            'get_over_history' => [
                 '安全性' => '有',
                 '请求类型' => 'GET',
                 '参数需求' => [

@@ -17,9 +17,15 @@ class get_room extends \core\ApiCtrl
         }
 
         $res = model("Room")->get_room($_0);
-        for ($i = 0; $i < 6; $i++) {
-            unset($res[$i]);
+        $res = [$res];
+        clear_fetchAll($res);
+        $res = $res[0];
+
+        if ($res['access'] > 2) {
+            $response['result'] = "invalid room";
+            return $response;
         }
+
         $response += $res;
         $res = model("Prize")->get_prize($response['rid'])->fetchAll();
         clear_fetchAll($res);

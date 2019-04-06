@@ -5,7 +5,7 @@ use core\lib\model as M;
 /**
  * 返回名叫name的model
  * @param string $name
- * @return M\UserModel|M\CookieModel|M\PrizeModel|M\LogModel|M\RoomModel|M\HistoryModel
+ * @return M\UserModel|M\CookieModel|M\PrizeModel|M\LogModel|M\RoomModel|M\HistoryModel|M\CdkeyModel
  */
 function model($name)
 {
