@@ -29,7 +29,7 @@ class del_prize extends \core\ApiCtrl
         }
 
         //检查是否是uid创建的rid这个房间
-        $res = model("History")->get_history($_1, his::MAKING, $_3);
+        $res = model("History")->get_room_history($_1, his::MAKING, $_3);
         $res = $res->fetchAll();
         if (count($res) !== 1 || $res[0]['uid'] != $uid) {
             $response['result'] = "failure";

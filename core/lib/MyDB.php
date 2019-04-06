@@ -8,10 +8,12 @@ class MyDB
 {
     protected $pdo;
     private $cnf;
+    private $db;
 
     private function __construct()
     {
         $this->cnf = conf::all("database");
+        $this->db = $this->cnf['DATABASE'];
         $this->pdo = new \PDO($this->cnf['DSN'], $this->cnf['USERNAME'], $this->cnf['PASSWORD']);
         //make sure table is exist
         foreach ($this->cnf['TABLE_DEFINE'] as $v) {
@@ -33,7 +35,7 @@ class MyDB
         return static::$ins[$className];
     }
 
-    private function query($_1, $_2 = null, $_3 = null, $_4 = null)
+    protected function query($_1, $_2 = null, $_3 = null, $_4 = null)
     {
         if ($_4 !== null)
             $ret = $this->pdo->query($_1, $_2, $_3, $_4);
@@ -51,41 +53,41 @@ class MyDB
     }
 
 
-    protected function select($table, $column = "*", $where = "")
+    protected function select($table, $column = "*", $where = null)
     {
-        if ($where != "") {
-            $sql = sprintf("SELECT %s FROM %s.%s WHERE %s;",
-                $column, $this->cnf['DATABASE'], $table, $where);
+        if (is_array($table)) {
+            $tables = [];
+            foreach ($table as $t) {
+                array_push($tables, "$this->db.$t");
+            }
+            $table = join(",", $tables);
         } else {
-            $sql = sprintf("SELECT %s FROM %s.%s;",
-                $column, $this->cnf['DATABASE'], $table);
+            $table = "$this->db.$table";
         }
+        $where = reserve($where, "WHERE $where");
+        $sql = "SELECT $column FROM $table $where;";
         return $this->query($sql);
     }
 
-    protected function update($table, $column, $content, $where = "")
+    protected function update($table, $column, $content, $where = null)
     {
-        if ($where != "") {
-            $sql = sprintf("UPDATE %s.%s SET %s = %s WHERE %s;",
-                $this->cnf['DATABASE'], $table, $column, $content, $where);
-        } else {
-            $sql = sprintf("UPDATE %s.%s SET %s = %s;",
-                $this->cnf['DATABASE'], $table, $column, $content);
-        }
+        $table = "$this->db.$table";
+        $where = reserve($where, "WHERE $where");
+        $sql = "UPDATE $table SET $column = $content $where;";
         return $this->query($sql);
     }
 
     protected function insert($table, $columns, $values)
     {
-        $sql = sprintf("INSERT INTO %s.%s%s VALUES%s;",
-            $this->cnf['DATABASE'], $table, $columns, $values);
+        $table = "$this->db.$table";
+        $sql = "INSERT INTO $table$columns VALUES$values;";
         return $this->query($sql);
     }
 
     protected function delete($table, $where)
     {
-        $sql = sprintf("DELETE FROM %s.%s WHERE %s;",
-            $this->cnf['DATABASE'], $table, $where);
+        $table = "$this->db.$table";
+        $sql = "DELETE FROM $table WHERE $where;";
         return $this->query($sql);
     }
 

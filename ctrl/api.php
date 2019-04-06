@@ -228,9 +228,10 @@ class api extends \core\ApiCtrl
                     'cookie' => 'string NOT NULL',
                 ],
                 '响应格式' => [
-                    '成功的情况' => '{"result":"success","rid":"INTEGER","title":"CHAR(32)"}',
+                    '成功的情况' => '{"result":"success","history":[{"rid":"INTEGER","title":"CHAR(32)"},...]}',
                     '错误的COOKIE' => '{"result":"invalid cookie"}',
-                ]
+                ],
+                '响应样例(成功)' => ["result" => "success", "history" => [["rid" => "24", "title" => "zxc"]]],
             ],
             'get_over_history' => [
                 '安全性' => '有',
@@ -239,9 +240,9 @@ class api extends \core\ApiCtrl
                     'cookie' => 'string NOT NULL',
                 ],
                 '响应格式' => [
-                    '成功的情况' => '{"result":"success","rid":"INTEGER","title":"CHAR(32)"}',
+                    '成功的情况' => '{"result":"success","history":[{"rid":"INTEGER","title":"CHAR(32)"},...]}',
                     '错误的COOKIE' => '{"result":"invalid cookie"}',
-                ]
+                ],
             ],
             '-get_got_history' => [
                 '安全性' => '有',

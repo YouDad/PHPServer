@@ -3,6 +3,7 @@
 namespace core\lib\model;
 
 const T_HISTORY = 'hottery_history';
+const T_ROOM = 'hottery_room';
 
 class HistoryModel extends \core\lib\MyDB
 {
@@ -34,33 +35,76 @@ class HistoryModel extends \core\lib\MyDB
     /**
      * 获得一个房间的历史信息
      * @param int $rid
-     * @param 0|1 $type
+     * @param 0|1|2|3 $type
      *  type只有HistoryModel的MAKING,MADE,JOINING,JOINED
      * @param int $time
      * @return false|\PDOStatement
      * @throws \Exception
      */
-    public function get_history($rid, $type, $time)
+    public function get_room_history($rid, $type, $time)
     {
-        switch ($type) {
-            case self::MAKING:
-                return $this->select(T_HISTORY, "*",
-                    sprintf("rid=%d AND type=%d AND time>%d",
-                        $rid, self::MAKE, $time));
-            case self::MADE:
-                return $this->select(T_HISTORY, "*",
-                    sprintf("rid=%d AND type=%d AND time<%d",
-                        $rid, self::MAKE, $time));
-            case self::JOINING:
-                return $this->select(T_HISTORY, "*",
-                    sprintf("rid=%d AND type=%d AND time>%d",
-                        $rid, self::JOIN, $time));
-            case self::JOINED:
-                return $this->select(T_HISTORY, "*",
-                    sprintf("rid=%d AND type=%d AND time<%d",
-                        $rid, self::JOIN, $time));
-            default:
-                throw new \Exception("type error!");
+        if (4 < $type || $type < 0) {
+            throw new \Exception("type error!");
         }
+        $type = $type / 2;
+        $op = $type % 2 ? "<" : ">=";
+        return $this->select(T_HISTORY, "*",
+            "rid=$rid AND type=$type AND time$op$time");
     }
+
+    /**
+     * 获得一个用户的历史信息
+     * @param int $uid
+     * @param 0|1|2|3 $type
+     *  type只有HistoryModel的MAKING,MADE,JOINING,JOINED
+     * @param int $time
+     * @return array
+     * @throws \Exception
+     */
+    public function get_user_history($uid, $type, $time)
+    {
+        if (4 < $type || $type < 0) {
+            throw new \Exception("type error!");
+        }
+        $_1 = $type / 2;
+        $_2 = $type % 2 ? "<$time" : ">=$time";
+        $where = "A.rid=B.rid AND uid=$uid AND type=$_1 AND B.start_time$_2";
+        $res = $this->select([T_HISTORY . " A", T_ROOM . " B"], "A.rid,B.title", $where);
+
+        return $res->fetchAll();
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

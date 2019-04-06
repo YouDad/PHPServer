@@ -62,17 +62,15 @@ function get_ip()
 /**
  * 根据$var是否是null来返回 ''或$str
  * @param mixed $var 需要判断的变量
- * @param string $format 如果变量不空返回的字符串格式
- * @param null $args
- * @param null $_
+ * @param string $str 如果变量不空返回的字符串格式
  * @return string
  */
-function reserve($var, $format, $args = null, $_ = null)
+function reserve($var, $str)
 {
     if ($var === null) {
         return '';
     } else {
-        return sprintf($format, $args, $_);
+        return $str;
     }
 }
 
