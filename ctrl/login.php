@@ -1,6 +1,6 @@
 <?php
 
-namespace app\ctrl;
+namespace ctrl;
 
 class login extends \core\ApiCtrl
 {

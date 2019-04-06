@@ -1,6 +1,6 @@
 <?php
 
-namespace app\ctrl;
+namespace ctrl;
 
 class get_all_room extends \core\ApiCtrl
 {
@@ -8,6 +8,7 @@ class get_all_room extends \core\ApiCtrl
     {
         $response['result'] = "success";
         $res = model("Room")->get_all_room();
+        $res = $res->fetchAll();
         clear_fetchAll($res);
         $response['option'] = $res;
 

@@ -22,13 +22,10 @@ class HistoryModel extends \core\lib\MyDB
      */
     public function add_history($uid, $rid, $type, $time = null)
     {
-        if ($time === null) {
-            $columns = "(uid,rid,type)";
-            $values = sprintf("(%d,%d,%d)", $uid, $rid, $type);
-        } else {
-            $columns = "(uid,rid,type,time)";
-            $values = sprintf("(%d,%d,%d,%d)", $uid, $rid, $type, $time);
-        }
+        $column = reserve($time, ",time");
+        $value = reserve($time, ",'$time'");
+        $columns = "(uid,rid,type$column)";
+        $values = "('$uid','$rid','$type'$value)";
         return $this->insert(T_HISTORY, $columns, $values);
     }
 
@@ -46,10 +43,10 @@ class HistoryModel extends \core\lib\MyDB
         if (4 < $type || $type < 0) {
             throw new \Exception("type error!");
         }
-        $type = $type / 2;
-        $op = $type % 2 ? "<" : ">=";
-        return $this->select(T_HISTORY, "*",
-            "rid=$rid AND type=$type AND time$op$time");
+        $_1 = $type / 2;
+        $_2 = $type % 2 ? "<" : ">=";
+        $where = "rid=$rid AND type=$_1 AND time$_2$time";
+        return $this->select(T_HISTORY, "*", $where);
     }
 
     /**
@@ -66,10 +63,12 @@ class HistoryModel extends \core\lib\MyDB
         if (4 < $type || $type < 0) {
             throw new \Exception("type error!");
         }
+        $table1 = T_HISTORY . " A";
+        $table2 = T_ROOM . " B";
         $_1 = $type / 2;
         $_2 = $type % 2 ? "<$time" : ">=$time";
         $where = "A.rid=B.rid AND uid=$uid AND type=$_1 AND B.start_time$_2";
-        $res = $this->select([T_HISTORY . " A", T_ROOM . " B"], "A.rid,B.title", $where);
+        $res = $this->select([$table1, $table2], "A.rid,B.title", $where);
 
         return $res->fetchAll();
     }

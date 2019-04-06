@@ -8,32 +8,31 @@ const T_UID = 'hottery_uid';
 class UserModel extends \core\lib\MyDB
 {
     /**
+     * 检查用户的密码是否正确,返回登录是否成功
      * @param string $username
      * @param string $password
      * @param int $time
-     * @return boolean
-     *  1.true 登录成功
-     *  2.false 登录失败
+     * @return bool
      */
     public function check_user($username, $password, $time)
     {
         $where = "username='$username'";
         $res = $this->select(T_USER, "*", $where);
-        $v = $res->fetchAll();
-        if (count($v) == 0)
+        $res = $res->fetchAll();
+        if (count($res) == 0) {
             return false;
-        $md5 = md5($v[0]['pass_md5'] . $time);
-        return $md5 == $password;
+        }
+        $md5 = md5($res[0]['pass_md5'] . $time);
+        return $md5 === $password;
     }
 
     /**
+     * 检查用户是否已经注册,如果没有,则注册,返回是否注册成功
      * @param string $username
      * @param string $password
      * @param null $level
      * @param null $phone_number
-     * @return boolean
-     *  1.true 注册成功
-     *  2.false 注册失败
+     * @return bool
      */
     public function add_user($username, $password, $level = null, $phone_number = null)
     {
@@ -42,23 +41,31 @@ class UserModel extends \core\lib\MyDB
             $level = 1;
         }
 
+        //检查是否存在同名用户
         $where = "username='$username'";
         $res = $this->select(T_USER, "*", $where);
-        if (count($res->fetchAll()) != 0)
+        if (count($res->fetchAll()) !== 0) {
+            //存在同名用户
             return false;
-        $columns = sprintf("(username,pass_md5%s%s)",
-            reserve($level, ",level"), reserve($phone_number, ",phone_number"));
-        $values = sprintf("('%s','%s'%s%s)",
-            $username, $password,
-            reserve($level, ",$level"),
-            reserve($phone_number, ",'$phone_number'"));
+        }
+
+        //注册该用户
+        $column1 = reserve($level, ",level");
+        $column2 = reserve($phone_number, ",phone_number");
+        $columns = "(username,pass_md5$column1$column2)";
+        $value1 = reserve($level, ",'$level'");
+        $value2 = reserve($phone_number, ",'$phone_number'");
+        $values = "('$username','$password'$value1$value2)";
         $this->insert(T_USER, $columns, $values);
+
+        //插入uid的表
         $this->insert(T_UID, "(username)", "('$username')");
         return true;
     }
 
     /**
-     * @param $username :hottery_user.username
+     * 返回$username的uid
+     * @param string $username
      * @return int
      */
     public function get_uid($username)
@@ -77,25 +84,19 @@ class UserModel extends \core\lib\MyDB
     }
 
     /**
+     * 根据$uid得到他的等级
      * @param $uid int
-     * @return int
-     *  1.>0 正确的等级
-     *  2.<0 这个用户没有等级
+     * @return int|false
      */
     public function get_level($uid)
     {
-        $where = "uid=" . $uid;
-        $res = $this->select(T_UID, "username", $where);
+        $table1 = T_UID . ' A';
+        $table2 = T_USER . ' B';
+        $where = "A.username=B.username AND A.uid='$uid'";
+        $res = $this->select([$table1, $table2], "B.level", $where);
         $res = $res->fetchAll();
         if (count($res) === 0) {
-            return -1;
-        }
-        $username = $res[0]['username'];
-        $where = "username='$username'";
-        $res = $this->select(T_USER, "level", $where);
-        $res = $res->fetchAll();
-        if (count($res) === 0) {
-            return -1;
+            return false;
         }
         return $res[0]['level'];
     }

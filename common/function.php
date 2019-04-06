@@ -9,6 +9,7 @@ use core\lib\model as M;
  */
 function model($name)
 {
+    /* @var M\UserModel|M\CookieModel|M\PrizeModel|M\LogModel|M\RoomModel|M\HistoryModel|M\CdkeyModel $className */
     $className = "\\core\\lib\\model\\" . $name . "Model";
     return $className::getIns();
 }

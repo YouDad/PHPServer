@@ -1,6 +1,6 @@
 <?php
 
-namespace app\ctrl;
+namespace ctrl;
 
 class api extends \core\ApiCtrl
 {
@@ -53,7 +53,7 @@ class api extends \core\ApiCtrl
                 '响应格式' => [
                     '成功的情况' => '{"result":"success",other...}',
                 ],
-                '响应样例(成功)' => ["result" => "success", "option" => [["rid" => "13", "title" => "zhaogeniub", "start_time" => "2019-05-01 12:00:00", "access" => "1", "img" => "gg.jpg", "other_option" => ""], ["rid" => "16", "title" => "zhaogeniub", "start_time" => "2019-04-05 19:18:57", "access" => "1", "img" => "mbws.png", "other_option" => "1"], ["rid" => "17", "title" => "zhaogeniub", "start_time" => "2019-04-05 19:18:57", "access" => "2", "img" => "mbws.png", "other_option" => "1"], ["rid" => "19", "title" => "zhaogeniub", "start_time" => "2015-12-11 11:11:11", "access" => "1", "img" => "mbws.png", "other_option" => "1"], ["rid" => "20", "title" => "zhaogeniub", "start_time" => "2015-12-11 11:11:11", "access" => "1", "img" => "mbws.png", "other_option" => "1"], ["rid" => "21", "title" => "\u662d\u54e5\u725b\u903c", "start_time" => "2019-05-01 12:12:12", "access" => "1", "img" => "_RainbowCatRainbowCatRainbowCat_", "other_option" => ""], ["rid" => "22", "title" => "zgnb", "start_time" => "2019-05-02 13:13:13", "access" => "2", "img" => "aa7a8af6a6ce8728565136de0902684b", "other_option" => ""], ["rid" => "23", "title" => "zxc", "start_time" => "2019-05-05 05:05:05", "access" => "1", "img" => "_RainbowCatRainbowCatRainbowCat_", "other_option" => ""]]],
+                '响应样例(成功)' => ["result" => "success", "option" => [["rid" => "13", "title" => "zhaogeniub", "start_time" => "2019-05-01 12:00:00", "access" => "1", "img" => "gg.jpg", "other_option" => ""], ["rid" => "16", "title" => "zhaogeniub", "start_time" => "2019-04-05 19:18:57", "access" => "1", "img" => "mbws.png", "other_option" => "1"], ["rid" => "17", "title" => "zhaogeniub", "start_time" => "2019-04-05 19:18:57", "access" => "2", "img" => "mbws.png", "other_option" => "1"], ["rid" => "19", "title" => "zhaogeniub", "start_time" => "2015-12-11 11:11:11", "access" => "1", "img" => "mbws.png", "other_option" => "1"], ["rid" => "20", "title" => "zhaogeniub", "start_time" => "2015-12-11 11:11:11", "access" => "1", "img" => "mbws.png", "other_option" => "1"], ["rid" => "21", "title" => "\u662d\u54e5\u725b\u903c", "start_time" => "2019-05-01 12:12:12", "access" => "1", "img" => "_RainbowCatRainbowCatRainbowCat_", "other_option" => ""], ["rid" => "22", "title" => "zhaogeniub", "start_time" => "2019-05-02 13:13:13", "access" => "2", "img" => "aa7a8af6a6ce8728565136de0902684b", "other_option" => ""], ["rid" => "23", "title" => "zxc", "start_time" => "2019-05-05 05:05:05", "access" => "1", "img" => "_RainbowCatRainbowCatRainbowCat_", "other_option" => ""]]],
             ],
             'add_img' => [
                 '安全性' => '',

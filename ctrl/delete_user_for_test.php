@@ -1,6 +1,6 @@
 <?php
 
-namespace app\ctrl;
+namespace ctrl;
 
 class delete_user_for_test extends \core\ApiCtrl
 {

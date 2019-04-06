@@ -6,19 +6,13 @@ use PDO;
 
 class MyDB
 {
-    /**
-     * @var PDO 唯一的php数据库对象
-     */
+    /* @var PDO 唯一的php数据库对象 */
     protected $pdo;
 
-    /**
-     * @var array php数据库的配置数组
-     */
+    /* @var array php数据库的配置数组 */
     private $cnf;
 
-    /**
-     * @var string 所用的php数据库的名字
-     */
+    /* @var string 所用的php数据库的名字 */
     private $db;
 
     /**
@@ -33,14 +27,11 @@ class MyDB
         $this->pdo = new PDO($this->cnf['DSN'], $this->cnf['USERNAME'], $this->cnf['PASSWORD']);
         //make sure table is exist
         foreach ($this->cnf['TABLE_DEFINE'] as $v) {
-            $this->pdo->exec(sprintf("%s %s.%s",
-                $this->cnf['CREATE_TABLE'], $this->cnf['DATABASE'], $v));
+            $this->pdo->exec("CREATE TABLE IF NOT EXISTS $this->db.$v");
         }
     }
 
-    /**
-     * @var array 存放子类实例的数组
-     */
+    /* @var array 存放子类实例的数组 */
     protected static $ins = [];
 
     /**
@@ -50,8 +41,9 @@ class MyDB
     public static function getIns()
     {
         $className = get_called_class();
-        if (!isset(static::$ins[$className]))
+        if (!isset(static::$ins[$className])) {
             static::$ins[$className] = new $className();
+        }
         return static::$ins[$className];
     }
 
@@ -65,14 +57,15 @@ class MyDB
      */
     protected function query($_1, $_2 = null, $_3 = null, $_4 = null)
     {
-        if ($_4 !== null)
+        if ($_4 !== null) {
             $ret = $this->pdo->query($_1, $_2, $_3, $_4);
-        else if ($_3 !== null)
+        } else if ($_3 !== null) {
             $ret = $this->pdo->query($_1, $_2, $_3);
-        else if ($_2 !== null)
+        } else if ($_2 !== null) {
             $ret = $this->pdo->query($_1, $_2);
-        else
+        } else {
             $ret = $this->pdo->query($_1);
+        }
         if (!$ret) {
             dump($_1);
             exit;

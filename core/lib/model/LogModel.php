@@ -6,9 +6,14 @@ const T_LOG = 'log';
 
 class LogModel extends \core\lib\MyDB
 {
+    /**
+     * 首先是补全日志之间的空隙
+     * 其次是对未有而应有的日志进行默认处理
+     */
     private function check_log()
     {
-        $res = $this->select(T_LOG)->fetchAll();
+        $res = $this->select(T_LOG);
+        $res = $res->fetchAll();
         $now = get_time() / 24 / 60 / 60;
         sscanf($res[0]['day'], "%d", $i);
         $last_content = $res[0]['content'];
@@ -18,28 +23,35 @@ class LogModel extends \core\lib\MyDB
             if ($i == $k) {
                 $last_content = $res[$j++]['content'];
             } else {
-                $this->insert(T_LOG, "(day,content)", "('$i','$last_content')");
+                $values = "('$i','$last_content')";
+                $this->insert(T_LOG, "(day,content)", $values);
             }
         }
     }
 
+    /**
+     * 获得日志大小
+     * @return int
+     */
     public function get_log_size()
     {
         $this->check_log();
-        $v = $this->select(T_LOG, 'day')->fetchAll();
-        return count($v);
+        $res = $this->select(T_LOG, 'day');
+        $res = $res->fetchAll();
+        return count($res);
     }
 
     /**
+     * 获得第$i天的日志
      * @param $i
-     * @return mixed
+     * @return string
      */
     public function get_log($i)
     {
         $this->check_log();
         $res = $this->select(T_LOG, 'content', "day='$i'");
-        $v = $res->fetchAll();
-        return $v[0]['content'];
+        $res = $res->fetchAll();
+        return $res[0]['content'];
     }
 
     /**
@@ -52,9 +64,13 @@ class LogModel extends \core\lib\MyDB
     public function update_log($i, $c, $p)
     {
         $this->check_log();
-        if ($p != md5("123456789"))
+        if ($p != md5("123456789")) {
             return false;
-        $this->update(T_LOG, "content", "'$c'", "day='$i'");
+        }
+        $content = "'$c'";
+        $where = "day='$i'";
+        $this->update(T_LOG, "content", $content, $where);
         return true;
     }
+
 }

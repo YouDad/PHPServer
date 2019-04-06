@@ -12,6 +12,13 @@ define('APP', APIS . 'app/');
 define('CTRL', APIS . 'ctrl/');
 define('DEBUG', true);
 
+$APIS = APIS;
+$CORE = "$APIS/core";
+$IMG = "$APIS/img";
+$APP = "$APIS/app";
+$CTRL = "$APIS/ctrl";
+$CONFIG = "$CORE/config";
+
 include 'vendor/autoload.php';
 
 if (DEBUG) {
@@ -28,8 +35,8 @@ if (DEBUG) {
     ini_set('display_error', 'Off');
 }
 
-include CORE . 'Apis.php';
-include 'common/includer.php';
+include "$CORE/Apis.php";
+include "common/includer.php";
 
 # next line will specify Apis::load
 # be called when class is not be loaded

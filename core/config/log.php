@@ -2,6 +2,6 @@
 return [
     'DRIVE' => 'file',
     'OPTION' => [
-        'PATH' => APIS . 'log/',
+        'PATH' => "$APIS/log",
     ],
 ];

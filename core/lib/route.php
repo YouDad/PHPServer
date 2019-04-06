@@ -3,31 +3,39 @@
 namespace core\lib;
 class route
 {
+    /* @var string $ctrl 解析出来的控制器 */
     public $ctrl;
+
+    /* @var bool $is_img 判断是不是在访问图片 */
     public $is_img = false;
+
+    /* @var string $img_url 如果是在访问图片,就记录图片的url */
     public $img_url;
 
+    /**
+     * 初始化一个路由类
+     * @throws \Exception
+     */
     public function __construct()
     {
-        // xxx.com/(index.php/)index/index
-        /**
-         * 1.hide index.php
-         * 2.requests URL parameters
-         * 3.return corresponding ctrl and method
-         */
-        if (isset($_SERVER)) \core\lib\log::log(serialize($_SERVER), "\$_SERVER");
-        if (isset($_GET)) \core\lib\log::log(serialize($_GET), "\$_GET");
-        if (isset($_POST)) \core\lib\log::log(serialize($_POST), "\$_POST");
+        //记录所有请求的三个变量
+        if (isset($_SERVER)) log::log(serialize($_SERVER), "\$_SERVER");
+        if (isset($_GET)) log::log(serialize($_GET), "\$_GET");
+        if (isset($_POST)) log::log(serialize($_POST), "\$_POST");
 
+        //请求的url
         $url = $_SERVER['REQUEST_URI'];
 
+        //访问根目录
         if (!isset($url) || $url === "/") {
             $this->ctrl = conf::get("CTRL", "route");
             return;
         }
 
+        //用斜杠分隔
         $arr = explode("/", trim($url, "/"));
 
+        //判断是不是图片
         if (count($arr) === 1 && strlen($arr[0]) === 32) {
             if (!$this->is_exist_ctrl($arr[0])) {
                 if ($this->is_exist_img($arr[0])) {
@@ -47,26 +55,28 @@ class route
             $this->ctrl = conf::get("CTRL", "route");
         }
 
-        # /id/1/str/asd => ['id']=1 , ['str']=asd
-        $cnt = count($arr);
-        $i = 1;
-        while ($i + 1 < $cnt) {
-            $_GET[$arr[$i]] = $arr[$i + 1];
-            $i = $i + 2;
-        }
-        if ($i > $cnt) {
-            $_GET['other'] = $arr[$i];
-        }
     }
 
+    /**
+     * 判断这个控制器是否存在
+     * @param string $ctrl_name
+     * @return bool
+     */
     private function is_exist_ctrl($ctrl_name)
     {
-        return is_file(CTRL . $ctrl_name . ".php");
+        global $CTRL;
+        return is_file("$CTRL/$ctrl_name.php");
     }
 
+    /**
+     * 判断这张图片是否存在
+     * @param string $img_name
+     * @return bool
+     */
     private function is_exist_img($img_name)
     {
-        return is_file(APIS . "img/" . $img_name);
+        global $IMG;
+        return is_file("$IMG/$img_name");
     }
 }
 
