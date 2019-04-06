@@ -25,8 +25,8 @@ class add_prize extends \core\ApiCtrl
 
         //可选参数赋值
         $_6 = $_7 = null;
-        if (isset($_METHOD['prob'])) $_6 = $_METHOD['prob'];
-        if (isset($_METHOD['img'])) $_7 = $_METHOD['img'];
+        if (isset($_METHOD['prob']) && $_METHOD['prob'] !== "") $_6 = $_METHOD['prob'];
+        if (isset($_METHOD['img']) && $_METHOD['img'] !== "") $_7 = $_METHOD['img'];
 
         //检查cookie是否正确
         $uid = model("Cookie")->get_user($_0);

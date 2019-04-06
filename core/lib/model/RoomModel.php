@@ -20,11 +20,20 @@ class RoomModel extends \core\lib\MyDB
         return $res->fetchAll()[0];
     }
 
+    /**
+     * @param string $t
+     * @param string $s
+     * @param string $a
+     * @param string $i
+     * @param string $o
+     * @return int
+     */
     public function add_room($t, $s, $a, $i, $o)
     {
         $this->insert(T_ROOM, '(title,start_time,access,img,other_option)',
             sprintf("('%s','%s','%s','%s','%s')", $t, $s, $a, $i, $o));
-        return array('result' => 'success');
+        $res = $this->select(T_ROOM, 'MAX(rid)')->fetchAll();
+        return $res[0][0];
     }
 
 }

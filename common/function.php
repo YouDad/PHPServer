@@ -110,3 +110,17 @@ function is_img_file($file_name)
     }
     return false;
 }
+
+/**
+ * 清洗从数据库中取得的结果,只留下字符串引索
+ * @param array $fetchAll
+ * @return void
+ */
+function clear_fetchAll(&$fetchAll)
+{
+    for ($i = 0; $i < count($fetchAll); $i++) {
+        for ($j = 0, $len = count($fetchAll[$i]); $j < $len; $j++) {
+            unset($fetchAll[$i][$j]);
+        }
+    }
+}

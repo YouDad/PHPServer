@@ -51,15 +51,9 @@ class api extends \core\ApiCtrl
                 '请求类型' => 'GET',
                 '参数需求' => [],
                 '响应格式' => [
-                    '成功的情况' => '{"result":"success","option":"[{
-                        "rid":"1",
-                        "title":"zhaogeniub",
-                        "start_time":"2015-11-11 11:11:11",
-                        "access":"1",
-                        "img":"img\/gg.jpg",
-                        "other_option":"other_option"
-                    },...]"}',
+                    '成功的情况' => '{"result":"success",other...}',
                 ],
+                '响应样例(成功)' => ["result" => "success", "option" => [["rid" => "13", "title" => "zhaogeniub", "start_time" => "2019-05-01 12:00:00", "access" => "1", "img" => "gg.jpg", "other_option" => ""], ["rid" => "16", "title" => "zhaogeniub", "start_time" => "2019-04-05 19:18:57", "access" => "1", "img" => "mbws.png", "other_option" => "1"], ["rid" => "17", "title" => "zhaogeniub", "start_time" => "2019-04-05 19:18:57", "access" => "2", "img" => "mbws.png", "other_option" => "1"], ["rid" => "19", "title" => "zhaogeniub", "start_time" => "2015-12-11 11:11:11", "access" => "1", "img" => "mbws.png", "other_option" => "1"], ["rid" => "20", "title" => "zhaogeniub", "start_time" => "2015-12-11 11:11:11", "access" => "1", "img" => "mbws.png", "other_option" => "1"], ["rid" => "21", "title" => "\u662d\u54e5\u725b\u903c", "start_time" => "2019-05-01 12:12:12", "access" => "1", "img" => "_RainbowCatRainbowCatRainbowCat_", "other_option" => ""], ["rid" => "22", "title" => "zgnb", "start_time" => "2019-05-02 13:13:13", "access" => "2", "img" => "aa7a8af6a6ce8728565136de0902684b", "other_option" => ""], ["rid" => "23", "title" => "zxc", "start_time" => "2019-05-05 05:05:05", "access" => "1", "img" => "_RainbowCatRainbowCatRainbowCat_", "other_option" => ""]]],
             ],
             'add_img' => [
                 '安全性' => '',
@@ -115,9 +109,9 @@ class api extends \core\ApiCtrl
                     '其他情况' => '{"result":"failure"}',
                 ],
             ],
-            '-add_room' => [
-                '安全性' => '无',
-                '请求类型' => 'GET',
+            'add_room' => [
+                '安全性' => '有',
+                '请求类型' => 'POST',
                 '参数需求' => [
                     'cookie' => 'CHAR(128) NOT NULL',
                     'title' => 'CHAR(32) NOT NULL',
@@ -139,16 +133,12 @@ class api extends \core\ApiCtrl
                         '1:public 进入和抽奖均无条件, 需要user.level>=2',
                         '2:protected 进入无条件,抽奖需cdkey 需要user.level>=2',
                         '3:private 不能无条件进入 需要user.level>=3',
-                        '5:over 已结束的房间 无法创建这样的房间,即user.level>4',
                     ],
-                    'img' => [
-                        '图片的路径 比如"img/gg.jpg"',
-                        '使用upload_image处理图片的问题',
-                    ],
+                    'img' => '图片的路径 比如"gg.jpg",使用add_img处理图片的问题',
                     'other_option' => '其他选项,根据自己的需求放自定义数据',
                 ],
                 '响应格式' => [
-                    '成功的情况' => '{"result":"success"}',
+                    '成功的情况' => '{"result":"success","rid":"INTEGER"}',
                     '创建者cookie失效' => '{"result":"invalid cookie"}',
                     '标题过长' => '{"result":"invalid title"}',
                     '非法的开始时间' => '{"result":"invalid start_time"}',
@@ -157,7 +147,7 @@ class api extends \core\ApiCtrl
                     '附加信息过多' => '{"result":"invalid other_option"}',
                 ],
             ],
-            '-get_room' => [
+            'get_room' => [
                 '安全性' => '不需要',
                 '请求类型' => 'GET',
                 '参数需求' => [
@@ -167,11 +157,12 @@ class api extends \core\ApiCtrl
                     'rid' => '房间号,能在get_all_room中获得',
                 ],
                 '响应格式' => [
-                    '成功的情况' => '{"result":"success","option":"{obj...}"}',
-                    '房间权限异常' => '{"result":"invalid room"}'
+                    '成功的情况' => '{"result":"success",other...}',
+                    '房间权限异常' => '{"result":"invalid room"}',
                 ],
+                '响应样例(成功)' => ["result" => "success", "rid" => "23", "title" => "zxc", "start_time" => "2019-05-05 05:05:05", "access" => "1", "img" => "_RainbowCatRainbowCatRainbowCat_", "other_option" => "", "prize" => [["pid" => "4", "rid" => "23", "name" => "\u4e09\u7b49\u5956", "award" => "100\u5186", "number" => "10", "prob" => null, "img" => null], ["pid" => "5", "rid" => "23", "name" => "\u4e8c\u7b49\u5956", "award" => "\u4e00\u4e07\u5186", "number" => "2", "prob" => null, "img" => "7115b20afb48e91ed5ffef28ca46efb2"], ["pid" => "6", "rid" => "23", "name" => "\u4e00\u7b49\u5956", "award" => "\u534e\u4e3a\u7b14\u8bb0\u672c", "number" => "1", "prob" => null, "img" => "24f7aa630795400a5a2dd05fddf98f7d"]]],
             ],
-            '-join_room' => [
+            'join_room' => [
                 '安全性' => '有',
                 '请求类型' => 'GET',
                 '参数需求' => [
@@ -180,12 +171,12 @@ class api extends \core\ApiCtrl
                 ],
                 '参数说明' => [
                     'cookie' => '加入者cookie',
-                    'cdkey' => '进入房间的邀请码',
+                    'cdkey' => '进入私有房间的邀请码',
                 ],
                 '响应格式' => [
-                    '成功的情况' => '{"result":"success",{房间的信息}}',
+                    '成功的情况' => '{"result":"success",房间的信息...}',
                     '加入者cookie失效' => '{"result":"invalid cookie"}',
-                    '标题过长' => '{"result":"invalid key"}',
+                    '无效的cdkey' => '{"result":"invalid cdkey"}',
                 ],
             ]
         ];

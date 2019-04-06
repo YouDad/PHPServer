@@ -2,6 +2,8 @@
 
 namespace core\lib;
 
+use PDO;
+
 class MyDB
 {
     protected $pdo;
@@ -31,6 +33,23 @@ class MyDB
         return static::$ins[$className];
     }
 
+    private function query($_1, $_2 = null, $_3 = null, $_4 = null)
+    {
+        if ($_4 !== null)
+            $ret = $this->pdo->query($_1, $_2, $_3, $_4);
+        else if ($_3 !== null)
+            $ret = $this->pdo->query($_1, $_2, $_3);
+        else if ($_2 !== null)
+            $ret = $this->pdo->query($_1, $_2);
+        else
+            $ret = $this->pdo->query($_1);
+        if (!$ret) {
+            dump($_1);
+            exit;
+        }
+        return $ret;
+    }
+
 
     protected function select($table, $column = "*", $where = "")
     {
@@ -41,7 +60,7 @@ class MyDB
             $sql = sprintf("SELECT %s FROM %s.%s;",
                 $column, $this->cnf['DATABASE'], $table);
         }
-        return $this->pdo->query($sql);
+        return $this->query($sql);
     }
 
     protected function update($table, $column, $content, $where = "")
@@ -53,21 +72,21 @@ class MyDB
             $sql = sprintf("UPDATE %s.%s SET %s = %s;",
                 $this->cnf['DATABASE'], $table, $column, $content);
         }
-        return $this->pdo->query($sql);
+        return $this->query($sql);
     }
 
     protected function insert($table, $columns, $values)
     {
         $sql = sprintf("INSERT INTO %s.%s%s VALUES%s;",
             $this->cnf['DATABASE'], $table, $columns, $values);
-        return $this->pdo->query($sql);
+        return $this->query($sql);
     }
 
     protected function delete($table, $where)
     {
         $sql = sprintf("DELETE FROM %s.%s WHERE %s;",
             $this->cnf['DATABASE'], $table, $where);
-        return $this->pdo->query($sql);
+        return $this->query($sql);
     }
 
 }

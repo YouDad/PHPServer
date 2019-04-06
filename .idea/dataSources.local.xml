@@ -11,5 +11,15 @@
       <user-name>RemoteUser</user-name>
       <introspection-schemas>*:hottery</introspection-schemas>
     </data-source>
+    <data-source name="ixv_viewer" uuid="d1965de6-fc8d-4fe8-bfd4-2e8e8b9dd017">
+      <database-info product="MariaDB" version="5.5.60-MariaDB" jdbc-version="4.2" driver-name="MariaDB Connector/J" driver-version="2.4.1" dbms="MARIADB" exact-version="5.5.60" exact-driver-version="2.4">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>Viewer</user-name>
+      <introspection-schemas>*:@</introspection-schemas>
+    </data-source>
   </component>
 </project>
