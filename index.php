@@ -12,7 +12,7 @@ define('APP', APIS . 'app/');
 define('CTRL', APIS . 'ctrl/');
 define('DEBUG', true);
 
-$APIS = APIS;
+$APIS = realpath('.');
 $CORE = "$APIS/core";
 $IMG = "$APIS/img";
 $APP = "$APIS/app";

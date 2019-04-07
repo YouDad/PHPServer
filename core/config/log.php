@@ -1,4 +1,5 @@
 <?php
+global $APIS;
 return [
     'DRIVE' => 'file',
     'OPTION' => [

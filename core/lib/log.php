@@ -13,7 +13,9 @@ class log
     public static function init()
     {
         $drive = conf::get("DRIVE", "log");
-        self::$class = new ("\core\lib\drive\log\\$drive");
+        $string = "/core/lib/drive/log/$drive";
+        $class_name = str_replace('/', '\\', $string);
+        self::$class = new $class_name;
     }
 
     public static function log($message, $file = "log")
