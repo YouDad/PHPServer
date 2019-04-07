@@ -25,7 +25,8 @@ class RoomModel extends \core\lib\MyDB
     public function get_room($rid)
     {
         $res = $this->select(T_ROOM, "*", "rid='$rid'");
-        return $res->fetchAll()[0];
+        $res = $res->fetchAll();
+        return $res;
     }
 
     /**

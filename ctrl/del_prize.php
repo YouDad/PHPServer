@@ -23,7 +23,7 @@ class del_prize extends \core\ApiCtrl
 
         //检查cookie是否正确
         $uid = model("Cookie")->get_user($_0);
-        if ($uid < 0) {
+        if (!$uid) {
             $response['result'] = "invalid cookie";
             return $response;
         }
@@ -44,7 +44,6 @@ class del_prize extends \core\ApiCtrl
 
         //删除奖项
         model("Prize")->del_prize($_2);
-
         $response['result'] = "success";
         return $response;
     }

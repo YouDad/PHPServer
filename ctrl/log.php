@@ -6,7 +6,8 @@ class log extends \core\ApiCtrl
 {
     public function main()
     {
-        include(APIS . "view/work_log/index.html");
+        global $APIS;
+        include("$APIS/view/work_log/index.html");
         return null;
     }
 }

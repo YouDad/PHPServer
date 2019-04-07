@@ -33,7 +33,7 @@ class LogModel extends \core\lib\MyDB
      * 获得日志大小
      * @return int
      */
-    public function get_log_size()
+    public function get_size()
     {
         $this->check_log();
         $res = $this->select(T_LOG, 'day');
@@ -44,14 +44,18 @@ class LogModel extends \core\lib\MyDB
     /**
      * 获得第$i天的日志
      * @param $i
-     * @return string
+     * @return string|false
      */
     public function get_log($i)
     {
         $this->check_log();
         $res = $this->select(T_LOG, 'content', "day='$i'");
         $res = $res->fetchAll();
-        return $res[0]['content'];
+        if (count($res) !== 0) {
+            return $res[0]['content'];
+        } else {
+            return false;
+        }
     }
 
     /**

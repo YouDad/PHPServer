@@ -16,16 +16,18 @@ class get_room extends \core\ApiCtrl
             return $response;
         }
 
+        //取房间信息
         $res = model("Room")->get_room($_0);
-        $res = [$res];
         clear_fetchAll($res);
         $res = $res[0];
 
+        //检查权限
         if ($res['access'] > 2) {
             $response['result'] = "invalid room";
             return $response;
         }
 
+        //把奖项信息取出来,返回
         $response += $res;
         $res = model("Prize")->get_prize($response['rid'])->fetchAll();
         clear_fetchAll($res);

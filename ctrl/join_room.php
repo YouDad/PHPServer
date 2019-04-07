@@ -21,7 +21,7 @@ class join_room extends \core\ApiCtrl
 
         //检查cookie是否正确
         $uid = model("Cookie")->get_user($_0);
-        if ($uid < 0) {
+        if (!$uid) {
             $response['result'] = "invalid cookie";
             return $response;
         }
@@ -35,7 +35,6 @@ class join_room extends \core\ApiCtrl
 
         //返回房间信息
         $res = model("Room")->get_room($rid);
-        $res = [$res];
         clear_fetchAll($res);
         $res = $res[0];
         $response += $res;
@@ -45,7 +44,6 @@ class join_room extends \core\ApiCtrl
 
         //添加历史信息
         model("History")->add_history($uid, $rid, his::JOIN);
-
         $response['result'] = "success";
         return $response;
     }

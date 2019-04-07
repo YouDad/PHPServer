@@ -24,11 +24,11 @@ class add_room extends \core\ApiCtrl
 
         //可选参数赋值
         $_5 = null;
-        if (isset($_METHOD['other_option'])) $_5 = $_METHOD['other_option'];
+        if (isset($_METHOD['other_option'])&& $_METHOD['other_option'] !== "") $_5 = $_METHOD['other_option'];
 
         //检查cookie是否正确
         $uid = model("Cookie")->get_user($_0);
-        if ($uid < 0) {
+        if (!$uid) {
             $response['result'] = "invalid cookie";
             return $response;
         }
@@ -69,8 +69,8 @@ class add_room extends \core\ApiCtrl
                 break;
         }
 
-        //检查图片文件是否正确
-        if (!is_img_file($_4)) {
+        //检查图片文件是否存在
+        if (!file_exists($_4)) {
             $response['result'] = "invalid img";
             return $response;
         }

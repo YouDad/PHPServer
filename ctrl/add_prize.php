@@ -30,7 +30,7 @@ class add_prize extends \core\ApiCtrl
 
         //检查cookie是否正确
         $uid = model("Cookie")->get_user($_0);
-        if ($uid < 0) {
+        if (!$uid) {
             $response['result'] = "invalid cookie";
             return $response;
         }
@@ -43,8 +43,8 @@ class add_prize extends \core\ApiCtrl
             return $response;
         }
 
-        //检查图片文件是否正确
-        if ($_7 !== null && !is_img_file($_7)) {
+        //检查图片文件是否存在
+        if ($_7 !== null && !file_exists($_7)) {
             $response['result'] = "invalid img";
             return $response;
         }

@@ -19,10 +19,10 @@ class CookieModel extends \core\lib\MyDB
 
     /**
      * 根据cookie返回uid
-     * @param $cookie => hottery_cookie.cookie
-     * @return int    => hottery_cookie.uid
-     *  1. <0 =>没有这个cookie
-     *  2. >0 =>正常结果
+     * @param string $cookie
+     * @return int|false
+     *  1. false =>没有这个cookie
+     *  2. int =>正常结果
      */
     public function get_user($cookie)
     {

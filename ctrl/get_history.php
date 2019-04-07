@@ -20,7 +20,7 @@ class get_history extends \core\ApiCtrl
 
         //检查cookie是否正确
         $uid = model("Cookie")->get_user($_0);
-        if ($uid < 0) {
+        if (!$uid) {
             $response['result'] = "invalid cookie";
             return $response;
         }
