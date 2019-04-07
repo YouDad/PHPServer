@@ -30,7 +30,7 @@ class CookieModel extends \core\lib\MyDB
         $res = $this->select(T_COOKIE, 'uid', "cookie='$cookie'");
         $res = $res->fetchAll();
         if (count($res) == 0) {
-            return -1;
+            return false;
         } else {
             return $res[0]['uid'];
         }
