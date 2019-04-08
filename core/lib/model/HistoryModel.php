@@ -29,21 +29,23 @@ class HistoryModel extends \core\lib\MyDB
     /**
      * 获得一个房间的历史信息
      * @param int $rid
-     * @param 0|1|2|3 $type
-     *  type只有HistoryModel的MAKING,MADE,JOINING,JOINED
-     * @param int $time
+     * @param 0|1 $type
+     *  type只有HistoryModel的MAKE,JOIN
      * @return false|\PDOStatement
      * @throws \Exception
      */
-    public function get_room_history($rid, $type, $time)
+    public function get_room_history($rid, $type)
     {
-        if (4 < $type || $type < 0) {
+        if (2 < $type || $type < 0) {
             throw new \Exception("type error!");
         }
-        $_1 = $type / 2;
-        $_2 = $type % 2 ? "<" : ">=";
-        $where = "rid=$rid AND type=$_1 AND time$_2$time";
-        return $this->select(T_HISTORY, "*", $where);
+
+        $table1 = T_UID . ' A';
+        $table2 = T_HISTORY . ' B';
+        $columns = "A.username,B.uid,B.time";
+        $where = "A.uid=B.uid AND B.rid='$rid' AND B.type='$type'";
+        $res = $this->select([$table1, $table2], $columns, $where);
+        return $res;
     }
 
     /**

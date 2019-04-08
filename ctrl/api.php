@@ -326,7 +326,7 @@ class api extends \core\ApiCtrl
                 ],
                 '响应样例(成功)' => ["result" => "success", "got" => [["username" => "zxc", "uid" => "31", "time" => "2019-04-06 17:39:39", "name" => "\u4e00\u7b49\u5956", "award" => "\u534e\u4e3a\u7b14\u8bb0\u672c", "img" => "24f7aa630795400a5a2dd05fddf98f7d"]]],
             ],
-            '-get_joined_user' => [
+            'get_joined_user' => [
                 '安全性' => '有',
                 '请求类型' => 'GET',
                 '参数需求' => [
@@ -338,10 +338,11 @@ class api extends \core\ApiCtrl
                     'rid' => '被查询的房间号',
                 ],
                 '响应格式' => [
-                    '成功的情况' => '{"result":"success","user":[{"uid":"INTEGER","username":"CHAR(16)"},...]}',
+                    '成功的情况' => '{"result":"success","user":[{obj},...]}',
                     '错误的COOKIE' => '{"result":"invalid cookie"}',
+                    '未参加的房间' => 'not joined',
                 ],
-                '响应样例(成功)' => ["result" => "success", "got" => [["username" => "zxc", "uid" => "31", "time" => "2019-04-06 17:39:39", "name" => "\u4e00\u7b49\u5956", "award" => "\u534e\u4e3a\u7b14\u8bb0\u672c", "img" => "24f7aa630795400a5a2dd05fddf98f7d"]]],
+                '响应样例(成功)' => ["result" => "success", "user" => [["username" => "zxc", "uid" => "31", "time" => "2019-04-06 20:13:35"]]],
             ],
             '-add_got_history' => [
                 '安全性' => '有',

@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1625c291-268b-4d6f-b376-3d81e8b0c22e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/ctrl/get_joined_user.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/lib/model/HistoryModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/lib/model/HistoryModel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ctrl/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/ctrl/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ctrl/join_hottery.php" beforeDir="false" afterPath="$PROJECT_DIR$/ctrl/join_hottery.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -94,13 +95,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ctrl/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="221" column="56" lean-forward="true" selection-start-line="221" selection-start-column="56" selection-end-line="221" selection-end-column="56" />
+            <state relative-caret-position="210">
+              <caret line="346" column="14" selection-start-line="346" selection-start-column="14" selection-end-line="346" selection-end-column="14" />
               <folding>
                 <element signature="e#114#1441#0#PHP" />
+                <element signature="e#1466#10732#0#PHP" />
                 <element signature="e#1498#2997#1#PHP" />
                 <element signature="e#3024#3184#1#PHP" />
                 <element signature="e#3213#4338#1#PHP" />
@@ -109,25 +111,21 @@
                 <element signature="e#6953#8122#1#PHP" />
                 <element signature="e#8151#8761#1#PHP" />
                 <element signature="e#8790#9904#1#PHP" />
+                <element signature="e#9937#10721#1#PHP" />
+                <element signature="e#10759#12479#0#PHP" />
+                <element signature="e#12538#13464#1#PHP" />
+                <element signature="e#13496#14239#1#PHP" />
+                <element signature="e#14271#15106#1#PHP" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ctrl/join_hottery.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="39" column="32" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ctrl/join_room.php">
+        <entry file="file://$PROJECT_DIR$/core/lib/model/HistoryModel.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="45" column="61" lean-forward="true" selection-start-line="45" selection-start-column="61" selection-end-line="45" selection-end-column="61" />
+            <state relative-caret-position="405">
+              <caret line="42" column="23" selection-start-line="42" selection-start-column="23" selection-end-line="42" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -215,7 +213,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/core/lib/ApiCtrl.php" />
         <option value="$PROJECT_DIR$/ctrl/requests.php" />
         <option value="$PROJECT_DIR$/core/Apis.php" />
         <option value="$PROJECT_DIR$/core/config/log.php" />
@@ -246,7 +243,6 @@
         <option value="$PROJECT_DIR$/view/work_log/css/main.css" />
         <option value="$PROJECT_DIR$/ctrl/get_bullet.php" />
         <option value="$PROJECT_DIR$/ctrl/get_user_got.php" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
         <option value="$PROJECT_DIR$/ctrl/get_room_got.php" />
         <option value="&lt;1da66262-1000-45bc-b442-461ba8f5cbfa&gt;/core/lib/MyDB.php" />
         <option value="$PROJECT_DIR$/ctrl/add_bullet.php" />
@@ -258,14 +254,16 @@
         <option value="$PROJECT_DIR$/core/lib/model/BulletModel.php" />
         <option value="$PROJECT_DIR$/core/lib/model/CdkeyModel.php" />
         <option value="$PROJECT_DIR$/core/lib/model/CookieModel.php" />
-        <option value="$PROJECT_DIR$/core/lib/model/HistoryModel.php" />
         <option value="$PROJECT_DIR$/core/lib/model/LogModel.php" />
         <option value="$PROJECT_DIR$/core/lib/model/PrizeModel.php" />
         <option value="$PROJECT_DIR$/core/lib/model/RoomModel.php" />
         <option value="$PROJECT_DIR$/core/lib/model/UserModel.php" />
         <option value="$PROJECT_DIR$/core/lib/MyDB.php" />
-        <option value="$PROJECT_DIR$/ctrl/api.php" />
         <option value="$PROJECT_DIR$/ctrl/join_hottery.php" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
+        <option value="$PROJECT_DIR$/ctrl/get_joined_user.php" />
+        <option value="$PROJECT_DIR$/core/lib/model/HistoryModel.php" />
+        <option value="$PROJECT_DIR$/ctrl/api.php" />
       </list>
     </option>
   </component>
@@ -316,6 +314,13 @@
               <item name="html" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="html" type="b2602c69:ProjectViewProjectNode" />
+              <item name="html" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="html" type="b2602c69:ProjectViewProjectNode" />
@@ -450,7 +455,7 @@
       <workItem from="1554706339041" duration="4658000" />
       <workItem from="1554717365499" duration="1390000" />
       <workItem from="1554718908600" duration="6158000" />
-      <workItem from="1554725141237" duration="6032000" />
+      <workItem from="1554725141237" duration="7128000" />
     </task>
     <task id="LOCAL-00001" summary="Configure and Log Class is complete.&#10;Reformat code.">
       <created>1553609647168</created>
@@ -641,11 +646,18 @@
       <option name="project" value="LOCAL" />
       <updated>1554730357052</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="做完了join_hottery的API">
+      <created>1554731407085</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1554731407085</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="310778000" />
+    <option name="totallyTimeSpent" value="311874000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -660,10 +672,10 @@
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.600863" visible="true" weight="0.13578275" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.600863" weight="0.13578275" />
       <window_info id="Structure" order="1" show_stripe_button="false" sideWeight="0.50053936" side_tool="true" weight="0.2432196" />
       <window_info id="Favorites" order="2" show_stripe_button="false" sideWeight="0.50053936" side_tool="true" weight="0.2432196" />
-      <window_info id="Remote Host" order="3" sideWeight="0.399137" weight="0.19542067" />
+      <window_info active="true" id="Remote Host" order="3" sideWeight="0.399137" visible="true" weight="0.19542067" />
       <window_info anchor="bottom" id="SQL Generator" order="0" weight="0.32905984" />
       <window_info anchor="bottom" auto_hide="true" x="312" y="458" width="1514" height="190" id="File Transfer" order="1" type="SLIDING" weight="0.25566342" />
       <window_info anchor="bottom" id="Message" order="2" />
@@ -745,7 +757,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="我也不知道说啥好,验收后的版本" />
     <MESSAGE value="采用单例模式的数据库,login还没写完" />
     <MESSAGE value="采用单例模式的数据库,login还没写完&#10;&#10;Signed-off-by: youDad &lt;1632083718@qq.com&gt;" />
     <MESSAGE value="login和register通过测试" />
@@ -770,26 +781,10 @@
     <MESSAGE value="搞定了get_user_got" />
     <MESSAGE value="搞定了get_room_got&#10;构思了一下以后要写的API" />
     <MESSAGE value="终于解决了常量重复定义的问题,原来是有的时候php文件会被include导致的两次定义&#10;那么把所有常量放到一个地方定义即可,保证不重复&#10;解决了一个图片地址bug&#10;增加了edit_room的API" />
-    <option name="LAST_COMMIT_MESSAGE" value="终于解决了常量重复定义的问题,原来是有的时候php文件会被include导致的两次定义&#10;那么把所有常量放到一个地方定义即可,保证不重复&#10;解决了一个图片地址bug&#10;增加了edit_room的API" />
+    <MESSAGE value="做完了join_hottery的API" />
+    <option name="LAST_COMMIT_MESSAGE" value="做完了join_hottery的API" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Desktop/test/UnitTest/test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="3" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/test_api/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" column="29" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/view/test_img/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -826,13 +821,6 @@
       </provider>
     </entry>
     <entry file="das://4fdf4818-3462-4b19-a537-52b07101c4df/schema/hottery/table/hottery_got">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://4fdf4818-3462-4b19-a537-52b07101c4df/schema/hottery/table/hottery_history">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
@@ -903,20 +891,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ctrl/get_all_room.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ctrl/get_bullet.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ctrl/get_history.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
@@ -1049,21 +1023,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://4fdf4818-3462-4b19-a537-52b07101c4df/schema/hottery/table/hottery_room">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/lib/model/CookieModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/lib/model/HistoryModel.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" selection-start-line="3" selection-end-line="3" />
@@ -1098,35 +1058,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://4fdf4818-3462-4b19-a537-52b07101c4df/schema/hottery/table/hottery_cdkey">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ctrl/join_room.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="675">
           <caret line="45" column="61" lean-forward="true" selection-start-line="45" selection-start-column="61" selection-end-line="45" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ctrl/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="221" column="56" lean-forward="true" selection-start-line="221" selection-start-column="56" selection-end-line="221" selection-end-column="56" />
-          <folding>
-            <element signature="e#114#1441#0#PHP" />
-            <element signature="e#1498#2997#1#PHP" />
-            <element signature="e#3024#3184#1#PHP" />
-            <element signature="e#3213#4338#1#PHP" />
-            <element signature="e#4367#5122#1#PHP" />
-            <element signature="e#5150#6925#1#PHP" />
-            <element signature="e#6953#8122#1#PHP" />
-            <element signature="e#8151#8761#1#PHP" />
-            <element signature="e#8790#9904#1#PHP" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1137,10 +1072,90 @@
         </state>
       </provider>
     </entry>
+    <entry file="das://4fdf4818-3462-4b19-a537-52b07101c4df/schema/hottery/table/hottery_room">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://4fdf4818-3462-4b19-a537-52b07101c4df/schema/hottery/table/hottery_cdkey">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://4fdf4818-3462-4b19-a537-52b07101c4df/schema/hottery/table/hottery_history">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ctrl/join_hottery.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="39" column="32" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
+        <state relative-caret-position="420">
+          <caret line="28" column="51" lean-forward="true" selection-start-line="28" selection-start-column="51" selection-end-line="28" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/ApiCtrl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="15" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ctrl/get_bullet.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ctrl/get_history.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/lib/model/HistoryModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="42" column="23" selection-start-line="42" selection-start-column="23" selection-end-line="42" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ctrl/get_joined_user.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="37" column="43" selection-start-line="37" selection-start-column="43" selection-end-line="37" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ctrl/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="346" column="14" selection-start-line="346" selection-start-column="14" selection-end-line="346" selection-end-column="14" />
+          <folding>
+            <element signature="e#114#1441#0#PHP" />
+            <element signature="e#1466#10732#0#PHP" />
+            <element signature="e#1498#2997#1#PHP" />
+            <element signature="e#3024#3184#1#PHP" />
+            <element signature="e#3213#4338#1#PHP" />
+            <element signature="e#4367#5122#1#PHP" />
+            <element signature="e#5150#6925#1#PHP" />
+            <element signature="e#6953#8122#1#PHP" />
+            <element signature="e#8151#8761#1#PHP" />
+            <element signature="e#8790#9904#1#PHP" />
+            <element signature="e#9937#10721#1#PHP" />
+            <element signature="e#10759#12479#0#PHP" />
+            <element signature="e#12538#13464#1#PHP" />
+            <element signature="e#13496#14239#1#PHP" />
+            <element signature="e#14271#15106#1#PHP" />
+          </folding>
         </state>
       </provider>
     </entry>
