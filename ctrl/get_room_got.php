@@ -14,7 +14,6 @@ class get_room_got extends \core\ApiCtrl
         try {
             $_0 = $_METHOD['cookie'];
             $_1 = $_METHOD['rid'];
-            $_2 = $_SERVER['REQUEST_TIME'];
         } catch (\Exception $exception) {
             //必选参数不能为空
             return $response;
@@ -28,9 +27,9 @@ class get_room_got extends \core\ApiCtrl
         }
 
         //检查是否是uid创建的rid这个房间
-        $res_ing = model("History")->get_room_history($_1, his::MAKING, $_2);
+        $res_ing = model("History")->get_room_history($_1, his::MAKE);
         $res_ing = $res_ing->fetchAll();
-        $res_ed = model("History")->get_room_history($_1, his::MADE, $_2);
+        $res_ed = model("History")->get_room_history($_1, his::MAKE);
         $res_ed = $res_ed->fetchAll();
         $res = $res_ing + $res_ed;
         if (count($res) !== 1 || $res[0]['uid'] != $uid) {

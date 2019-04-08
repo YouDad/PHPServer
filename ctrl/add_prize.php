@@ -17,7 +17,6 @@ class add_prize extends \core\ApiCtrl
             $_2 = $_METHOD['name'];
             $_3 = $_METHOD['award'];
             $_4 = $_METHOD['number'];
-            $_5 = $_SERVER['REQUEST_TIME'];
         } catch (\Exception $exception) {
             //必选参数不能为空
             return $response;
@@ -36,7 +35,7 @@ class add_prize extends \core\ApiCtrl
         }
 
         //检查是否是uid创建的rid这个房间
-        $res = model("History")->get_room_history($_1, his::MAKING, $_5);
+        $res = model("History")->get_room_history($_1, his::MAKE);
         $res = $res->fetchAll();
         if (count($res) !== 1 || $res[0]['uid'] != $uid) {
             $response['result'] = "failure";

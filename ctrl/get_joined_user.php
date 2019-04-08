@@ -14,7 +14,6 @@ class get_joined_user extends \core\ApiCtrl
         try {
             $_0 = $_METHOD['cookie'];
             $_1 = $_METHOD['rid'];
-            $_2 = $_SERVER['REQUEST_TIME'];
         } catch (\Exception $exception) {
             //必选参数不能为空
             return $response;

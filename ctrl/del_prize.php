@@ -15,7 +15,6 @@ class del_prize extends \core\ApiCtrl
             $_0 = $_METHOD['cookie'];
             $_1 = $_METHOD['rid'];
             $_2 = $_METHOD['pid'];
-            $_3 = $_SERVER['REQUEST_TIME'];
         } catch (\Exception $exception) {
             //必选参数不能为空
             return $response;
@@ -29,7 +28,7 @@ class del_prize extends \core\ApiCtrl
         }
 
         //检查是否是uid创建的rid这个房间
-        $res = model("History")->get_room_history($_1, his::MAKING, $_3);
+        $res = model("History")->get_room_history($_1, his::MAKE);
         $res = $res->fetchAll();
         if (count($res) !== 1 || $res[0]['uid'] != $uid) {
             $response['result'] = "failure";
