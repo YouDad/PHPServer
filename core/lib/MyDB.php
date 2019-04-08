@@ -66,6 +66,7 @@ class MyDB
         } else {
             $ret = $this->pdo->query($_1);
         }
+        log::log($ret->queryString, "sql");
         if (!$ret) {
             dump($_1);
             exit;

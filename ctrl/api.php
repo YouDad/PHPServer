@@ -181,25 +181,46 @@ class api extends \core\ApiCtrl
             ],
         ];
         $api['bullet'] = [
-            '-get_bullet' => [
+            'get_bullet' => [
                 '安全性' => '有',
                 '请求类型' => 'GET',
                 '参数需求' => [
-                    'cookie' => 'string NOT NULL (小饼干)',
-                    'rid' => 'INTEGER NOT NULL (房间标识号)',
-                    'start' => 'INTEGER (开始接受的位置)'
+                    'cookie' => 'CHAR(128) NOT NULL',
+                    'rid' => 'INTEGER NOT NULL',
+                    'start' => 'INTEGER NOT NULL',
                 ],
-                '响应格式' => '{"result":"success","bullet":"[obj...]"} or {"result":"invalid cookie"}',
+                '参数说明' => [
+                    'cookie' => '发送者的cookie',
+                    'rid' => '房间号',
+                    'start' => '开始接受弹幕的bid',
+                ],
+                '响应格式' => [
+                    '成功的情况' => '{"result":"success","bullet":"[obj...]"}',
+                    '发送者cookie失效' => '{"result":"invalid cookie"}',
+                    '发送者不在房间里' => '{"result":"invalid rid"}',
+                    '其他情况' => '{"result":"failure"}',
+                ],
+                '响应样例(成功)' => ["result" => "success", "bullet" => [["username" => "zxc", "time" => "2019-04-08 19:49:34", "content" => "Game"]]],
             ],
-            '-add_bullet' => [
+            'add_bullet' => [
                 '安全性' => '有',
                 '请求类型' => 'POST',
                 '参数需求' => [
-                    'cookie' => 'string NOT NULL (小饼干)',
-                    'rid' => 'INTEGER NOT NULL (房间标识号)',
-                    'content' => 'CHAR(72) NOT NULL (不能超过72个字符,弹幕内容)'
+                    'cookie' => 'CHAR(128) NOT NULL',
+                    'rid' => 'INTEGER NOT NULL',
+                    'content' => 'CHAR(72) NOT NULL',
                 ],
-                '响应格式' => '{"result":"success"} or {"result":"invalid cookie"} or {"result":"failure"}',
+                '参数说明' => [
+                    'cookie' => '发送者的cookie',
+                    'rid' => '房间号',
+                    'content' => '弹幕内容',
+                ],
+                '响应格式' => [
+                    '成功的情况' => '{"result":"success"}',
+                    '发送者cookie失效' => '{"result":"invalid cookie"}',
+                    '无效的content' => '{"result":"invalid content"}',
+                    '其他情况' => '{"result":"failure"}',
+                ],
             ]
         ];
         $api['hottery'] = [

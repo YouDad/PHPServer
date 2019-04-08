@@ -5,11 +5,11 @@ use core\lib\model as M;
 /**
  * 返回名叫name的model
  * @param string $name
- * @return M\UserModel|M\CookieModel|M\PrizeModel|M\LogModel|M\RoomModel|M\HistoryModel|M\CdkeyModel
+ * @return M\UserModel|M\CookieModel|M\PrizeModel|M\LogModel|M\RoomModel|M\HistoryModel|M\CdkeyModel|M\BulletModel
  */
 function model($name)
 {
-    /* @var M\UserModel|M\CookieModel|M\PrizeModel|M\LogModel|M\RoomModel|M\HistoryModel|M\CdkeyModel $className */
+    /* @var M\UserModel|M\CookieModel|M\PrizeModel|M\LogModel|M\RoomModel|M\HistoryModel|M\CdkeyModel|M\BulletModel $className */
     $className = "\\core\\lib\\model\\" . $name . "Model";
     return $className::getIns();
 }

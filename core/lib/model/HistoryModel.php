@@ -73,6 +73,20 @@ class HistoryModel extends \core\lib\MyDB
         return $res->fetchAll();
     }
 
+    /**
+     * 判断$uid是不是在$rid这个房间里
+     * @param int $uid
+     * @param int $rid
+     * @return bool
+     */
+    public function check_user_in_room($uid, $rid)
+    {
+        $where = "uid='$uid' AND rid='$rid'";
+        $res = $this->select(T_HISTORY, "*", $where);
+        $res = $res->fetchAll();
+        return count($res) === 1;
+    }
+
 }
 
 
