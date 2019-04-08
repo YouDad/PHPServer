@@ -25,7 +25,7 @@ class register extends \core\ApiCtrl
 
         //生成cookie返回
         $response['result'] = "success";
-        $uid = model("User")->get_uid($_1);
+        $uid = model("User")->get_uid($_0);
         $response['cookie'] = model("Cookie")->gen_cookie($uid);
         return $response;
     }

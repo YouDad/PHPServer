@@ -17,6 +17,7 @@ $CORE = "$APIS/core";
 $IMG = "$APIS/img";
 $APP = "$APIS/app";
 $CTRL = "$APIS/ctrl";
+$VIEW = "$APIS/view";
 $CONFIG = "$CORE/config";
 
 include 'vendor/autoload.php';

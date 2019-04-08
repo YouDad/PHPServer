@@ -2,13 +2,13 @@
 
 namespace ctrl;
 
-class index extends \core\ApiCtrl
+class UnitTest extends \core\ApiCtrl
 {
     public function main()
     {
         global $VIEW;
-        echo "<base href='view/hottery/main/' />";
-        $path = "$VIEW/hottery/main/home.html";
+        echo "<base href='view/UintTest' />";
+        $path = "$VIEW/UnitTest/index.html";
         include($path);
         return null;
     }

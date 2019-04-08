@@ -6,9 +6,9 @@ class test_img extends \core\ApiCtrl
 {
     public function main()
     {
-        global $APIS;
+        global $VIEW;
         echo "<base href='view/test_img/' />";
-        $path = "$APIS/view/test_img/index.html";
+        $path = "$VIEW/test_img/index.html";
         include($path);
         return null;
     }
