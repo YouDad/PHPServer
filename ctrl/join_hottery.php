@@ -30,7 +30,8 @@ class join_hottery extends \core\ApiCtrl
             return $response;
         }
 
-        if (model("History")->check_user_in_room($uid, $_1)) {
+        $res = model("History")->check_user_in_room($uid, $_1);
+        if ($res !== false) {
             $response['result'] = "already";
             return $response;
         }

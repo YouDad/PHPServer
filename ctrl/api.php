@@ -344,7 +344,7 @@ class api extends \core\ApiCtrl
                 ],
                 '响应样例(成功)' => ["result" => "success", "user" => [["username" => "zxc", "uid" => "31", "time" => "2019-04-06 20:13:35"]]],
             ],
-            '-add_got_history' => [
+            'add_got_history' => [
                 '安全性' => '有',
                 '请求类型' => 'POST',
                 '参数需求' => [
@@ -355,12 +355,16 @@ class api extends \core\ApiCtrl
                 '参数说明' => [
                     'cookie' => '被查询者的cookie',
                     'rid' => '被查询的房间号',
-                    'uid_pid_json_array' => 'json编码的uid和pid对象数组',
+                    'uid_pid_json_array' => [
+                        'json编码的uid和pid对象数组',
+                        '例如:[{"uid":"1","pid":"1"},...]',
+                    ],
                 ],
                 '响应格式' => [
                     '成功的情况' => '{"result":"success"}',
                     '错误的COOKIE' => '{"result":"invalid cookie"}',
                     '错误的数据格式' => '{"result":"invalid uid_pid_json_array"}',
+                    '未进房间的中奖' => '{"result":"not in room uid get pid"}',
                 ],
             ],
             '-get_status' => [

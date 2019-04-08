@@ -76,14 +76,18 @@ class HistoryModel extends \core\lib\MyDB
      * 判断$uid是不是在$rid这个房间里
      * @param int $uid
      * @param int $rid
-     * @return bool
+     * @return false|int
      */
     public function check_user_in_room($uid, $rid)
     {
         $where = "uid='$uid' AND rid='$rid'";
-        $res = $this->select(T_HISTORY, "*", $where);
+        $res = $this->select(T_HISTORY, "hid", $where);
         $res = $res->fetchAll();
-        return count($res) === 1;
+        if (!count($res)) {
+            return false;
+        } else {
+            return $res[0]['hid'];
+        }
     }
 
     /**
@@ -118,6 +122,24 @@ class HistoryModel extends \core\lib\MyDB
         $where = "A.hid=B.hid AND A.pid=C.pid AND B.uid=D.uid AND B.rid=$rid";
         $res = $this->select([$t1, $t2, $t3, $t4], $column, $where);
         return $res;
+    }
+
+    /**
+     * 增加中奖记录
+     * @param int $uid
+     * @param int $rid
+     * @param int $pid
+     * @return bool
+     */
+    public function add_got($uid, $rid, $pid)
+    {
+        $hid = $this->check_user_in_room($uid, $rid);
+        if ($hid) {
+            $columns = "(hid,pid)";
+            $values = "('$hid','$pid')";
+            $this->insert(T_GOT, $columns, $values);
+        }
+        return $hid !== false;
     }
 
 }
