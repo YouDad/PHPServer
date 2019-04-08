@@ -265,16 +265,37 @@ class api extends \core\ApiCtrl
                 ],
                 '响应样例(成功)' => ["result" => "success", "history" => [["rid" => "24", "title" => "zxc"]]],
             ],
-            '-get_got_history' => [
+            'get_user_got' => [
                 '安全性' => '有',
                 '请求类型' => 'GET',
                 '参数需求' => [
-                    'cookie' => 'string NOT NULL',
+                    'cookie' => 'CHAR(128) NOT NULL',
                 ],
                 '响应格式' => [
-                    '成功的情况' => '{"result":"success","rid":"INTEGER","pid":"INTEGER"}',
+                    '成功的情况' => '{"result":"success","got":[{"rid":"INTEGER","pid":"INTEGER"},...]}',
                     '错误的COOKIE' => '{"result":"invalid cookie"}',
-                ]
+                ],
+                '参数说明' => [
+                    'cookie' => '被查询者的cookie',
+                ],
+                '响应样例(成功)' => ["result" => "success", "got" => [["time" => "2019-04-08 20:36:01", "rid" => "23", "title" => "zxc", "name" => "\u4e00\u7b49\u5956", "award" => "\u534e\u4e3a\u7b14\u8bb0\u672c", "img" => "24f7aa630795400a5a2dd05fddf98f7d"]]],
+            ],
+            'get_room_got' => [
+                '安全性' => '有',
+                '请求类型' => 'GET',
+                '参数需求' => [
+                    'cookie' => 'CHAR(128) NOT NULL',
+                    'rid' => 'INTEGER NOT NULL',
+                ],
+                '响应格式' => [
+                    '成功的情况' => '{"result":"success","got":[{"rid":"INTEGER","pid":"INTEGER"},...]}',
+                    '错误的COOKIE' => '{"result":"invalid cookie"}',
+                ],
+                '参数说明' => [
+                    'cookie' => '被查询者的cookie',
+                    'rid' => '被查询的房间号',
+                ],
+//                '响应样例(成功)' => ["result" => "success", "history" => [["rid" => "24", "title" => "zxc"]]],
             ],
         ];
         if (!isset($_POST['json'])) {

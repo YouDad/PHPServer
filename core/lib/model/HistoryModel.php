@@ -4,6 +4,8 @@ namespace core\lib\model;
 
 const T_HISTORY = 'hottery_history';
 const T_ROOM = 'hottery_room';
+const T_GOT = 'hottery_got';
+const T_PRIZE = 'hottery_prize';
 
 class HistoryModel extends \core\lib\MyDB
 {
@@ -85,6 +87,38 @@ class HistoryModel extends \core\lib\MyDB
         $res = $this->select(T_HISTORY, "*", $where);
         $res = $res->fetchAll();
         return count($res) === 1;
+    }
+
+    /**
+     * 获得$uid的所有获奖信息
+     * @param int $uid
+     * @return \PDOStatement
+     */
+    public function get_user_got($uid)
+    {
+        $t1 = T_GOT . ' A';
+        $t2 = T_HISTORY . ' B';
+        $t3 = T_ROOM . ' C';
+        $t4 = T_PRIZE . ' D';
+        $column = "A.time,B.rid,C.title,D.name,D.award,D.img";
+        $where = "A.hid=B.hid AND B.rid=C.rid AND A.pid=D.pid AND B.uid=$uid";
+        $res = $this->select([$t1, $t2, $t3, $t4], $column, $where);
+        return $res;
+    }
+
+    /**
+     * 获得$rid的所有获奖信息
+     * @param int $rid
+     * @return \PDOStatement
+     */
+    public function get_room_got($rid)
+    {
+        $table1 = T_GOT . ' A';
+        $table2 = T_HISTORY . ' B';
+        $column = "A.pid,B.uid,B.time";
+        $where = "A.hid=B.hid AND B.rid=$rid";
+        $res = $this->select([$table1, $table2], $column, $where);
+        return $res;
     }
 
 }
