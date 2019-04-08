@@ -2,8 +2,6 @@
 
 namespace core\lib\model;
 
-const T_COOKIE = 'hottery_cookie';
-
 class CookieModel extends \core\lib\MyDB
 {
     /**

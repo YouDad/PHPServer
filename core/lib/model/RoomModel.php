@@ -2,8 +2,6 @@
 
 namespace core\lib\model;
 
-const T_ROOM = 'hottery_room';
-
 class RoomModel extends \core\lib\MyDB
 {
     /**
@@ -46,9 +44,18 @@ class RoomModel extends \core\lib\MyDB
         $this->insert(T_ROOM, $columns, $values);
 
         //返回这个新房间的rid
-        $res = $this->select(T_ROOM, 'MAX(rid)');
+        $res = $this->select(T_ROOM, "MAX(rid)");
         $res = $res->fetchAll();
         return $res[0][0];
+    }
+
+
+    public function edit_room($rid, $t, $i, $o)
+    {
+        $where = "rid='$rid'";
+        $this->update(T_ROOM, "title", "'$t'", $where);
+        $this->update(T_ROOM, "img", "'$i'", $where);
+        $this->update(T_ROOM, "other_option", "'$o'", $where);
     }
 
 }

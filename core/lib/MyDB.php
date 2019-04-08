@@ -1,5 +1,17 @@
 <?php
 
+namespace core\lib\model;
+const T_BULLET = 'hottery_bullet';
+const T_UID = 'hottery_uid';
+const T_CDKEY = 'hottery_cdkey';
+const T_COOKIE = 'hottery_cookie';
+const T_HISTORY = 'hottery_history';
+const T_ROOM = 'hottery_room';
+const T_GOT = 'hottery_got';
+const T_PRIZE = 'hottery_prize';
+const T_LOG = 'log';
+const T_USER = 'hottery_user';
+
 namespace core\lib;
 
 use PDO;
@@ -66,10 +78,11 @@ class MyDB
         } else {
             $ret = $this->pdo->query($_1);
         }
-        log::log($ret->queryString, "sql");
         if (!$ret) {
             dump($_1);
             exit;
+        } else {
+            log::log($ret->queryString, "sql");
         }
         return $ret;
     }

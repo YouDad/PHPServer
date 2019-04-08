@@ -2,9 +2,6 @@
 
 namespace core\lib\model;
 
-const T_BULLET = 'hottery_bullet';
-const T_UID = 'hottery_uid';
-
 class BulletModel extends \core\lib\MyDB
 {
     /**

@@ -6,7 +6,7 @@ class add_img extends \core\ApiCtrl
 {
     public function main()
     {
-        global $APIS;
+        global $IMG;
         //检查参数存在性,参数简短化
         $response['result'] = "failure";
         try {
@@ -42,8 +42,8 @@ class add_img extends \core\ApiCtrl
         $response['result'] = "success";
         $md5 = md5_file($_3);
         $response['filename'] = $md5;
-        $new_file_name = "$APIS/img/$md5";
-        if (!file_exists($new_file_name)) {
+        $new_file_name = "$IMG/$md5";
+        if (!img_exists($md5)) {
             move_uploaded_file($_3, $new_file_name);
 
             //到文件中查看文件类型

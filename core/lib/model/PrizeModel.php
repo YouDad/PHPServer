@@ -2,8 +2,6 @@
 
 namespace core\lib\model;
 
-const T_PRIZE = 'hottery_prize';
-
 class PrizeModel extends \core\lib\MyDB
 {
     /**

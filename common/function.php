@@ -123,3 +123,14 @@ function clear_fetchAll(&$fetchAll)
         }
     }
 }
+
+/**
+ * 判断是否存在名为$file_name的文件
+ * @param string $file_name
+ * @return bool
+ */
+function img_exists($file_name)
+{
+    global $IMG;
+    return file_exists("$IMG/$file_name");
+}

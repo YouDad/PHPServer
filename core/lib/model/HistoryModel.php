@@ -2,12 +2,6 @@
 
 namespace core\lib\model;
 
-const T_HISTORY = 'hottery_history';
-const T_ROOM = 'hottery_room';
-const T_GOT = 'hottery_got';
-const T_PRIZE = 'hottery_prize';
-const T_UID = 'hottery_uid';
-
 class HistoryModel extends \core\lib\MyDB
 {
     const MAKE = 0, JOIN = 1;

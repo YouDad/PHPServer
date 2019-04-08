@@ -2,8 +2,6 @@
 
 namespace core\lib\model;
 
-const T_LOG = 'log';
-
 class LogModel extends \core\lib\MyDB
 {
     /**

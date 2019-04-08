@@ -2,9 +2,6 @@
 
 namespace core\lib\model;
 
-const T_USER = 'hottery_user';
-const T_UID = 'hottery_uid';
-
 class UserModel extends \core\lib\MyDB
 {
     /**

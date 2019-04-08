@@ -44,7 +44,7 @@ class add_prize extends \core\ApiCtrl
         }
 
         //检查图片文件是否存在
-        if ($_7 !== null && !file_exists($_7)) {
+        if ($_7 !== null && !img_exists($_7)) {
             $response['result'] = "invalid img";
             return $response;
         }

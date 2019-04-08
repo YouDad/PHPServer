@@ -4,7 +4,7 @@ namespace ctrl;
 
 use core\lib\model\HistoryModel as his;
 
-class add_room extends \core\ApiCtrl
+class edit_room extends \core\ApiCtrl
 {
     public function main()
     {
@@ -14,9 +14,9 @@ class add_room extends \core\ApiCtrl
         try {
             $_0 = $_METHOD['cookie'];
             $_1 = $_METHOD['title'];
-            $_2 = $_METHOD['start_time'];
-            $_3 = $_METHOD['access'];
-            $_4 = $_METHOD['img'];
+            $_2 = $_METHOD['img'];
+            $_3 = $_METHOD['rid'];
+            $_4 = $_SERVER['REQUEST_TIME'];
         } catch (\Exception $exception) {
             //必选参数不能为空
             return $response;
@@ -24,12 +24,20 @@ class add_room extends \core\ApiCtrl
 
         //可选参数赋值
         $_5 = null;
-        if (isset($_METHOD['other_option'])&& $_METHOD['other_option'] !== "") $_5 = $_METHOD['other_option'];
+        if (isset($_METHOD['other_option']) && $_METHOD['other_option'] !== "") $_5 = $_METHOD['other_option'];
 
         //检查cookie是否正确
         $uid = model("Cookie")->get_user($_0);
         if (!$uid) {
             $response['result'] = "invalid cookie";
+            return $response;
+        }
+
+        //检查是否是uid创建的rid这个房间
+        $res = model("History")->get_room_history($_3, his::MAKING, $_4);
+        $res = $res->fetchAll();
+        if (count($res) !== 1 || $res[0]['uid'] != $uid) {
+            $response['result'] = "invalid rid";
             return $response;
         }
 
@@ -45,41 +53,15 @@ class add_room extends \core\ApiCtrl
             return $response;
         }
 
-        //检查开始时间
-        if (get_server_time() > $_2) {
-            $response['result'] = "invalid start_time";
-            return $response;
-        }
-
-        //检查权限
-        $level = model('User')->get_level($uid);
-        switch ($_3) {
-            case 1:
-            case 2:
-                if ($level < 2) {
-                    $response['result'] = "invalid access";
-                    return $response;
-                }
-                break;
-            case 3:
-                if ($level < 3) {
-                    $response['result'] = "invalid access";
-                    return $response;
-                }
-                break;
-        }
-
         //检查图片文件是否存在
-        if (!img_exists($_4)) {
+        if (!img_exists($_2)) {
             $response['result'] = "invalid img";
             return $response;
         }
 
-        //加个房间
-        $rid = model("Room")->add_room($_1, $_2, $_3, $_4, $_5);
-        model("History")->add_history($uid, $rid, his::MAKE);
+        //修改房间
+        $rid = model("Room")->edit_room($_3, $_1, $_2, $_5);
         $response['result'] = "success";
-        $response['rid'] = $rid;
         return $response;
     }
 }

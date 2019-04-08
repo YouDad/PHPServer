@@ -2,8 +2,6 @@
 
 namespace core\lib\model;
 
-const T_CDKEY = 'hottery_cdkey';
-
 class CdkeyModel extends \core\lib\MyDB
 {
     /**
