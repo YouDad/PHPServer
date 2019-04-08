@@ -205,7 +205,7 @@ class api extends \core\ApiCtrl
                     '房间号不匹配' => '{"result":"invalid rid"}',
                 ],
             ],
-            '-join_hottery' => [
+            'join_hottery' => [
                 '安全性' => '有',
                 '请求类型' => 'POST',
                 '参数需求' => [
