@@ -179,6 +179,68 @@ class api extends \core\ApiCtrl
                     '无效的cdkey' => '{"result":"invalid cdkey"}',
                 ],
             ],
+            '-edit_room' => [
+                '安全性' => '有',
+                '请求类型' => 'POST',
+                '参数需求' => [
+                    'cookie' => 'CHAR(128) NOT NULL',
+                    'title' => 'CHAR(32) NOT NULL',
+                    'start_time' => 'INTEGER NOT NULL',
+                    'access' => 'INTEGER NOT NULL',
+                    'img' => 'CHAR(32) NOT NULL',
+                    'other_option' => 'CHAR(1024)',
+                    'rid' => 'INTEGER NOT NULL',
+                ],
+                '参数说明' => [
+                    'cookie' => '创建者的cookie',
+                    'title' => '房间标题,注意,不得超过32个字符',
+                    'start_time' => [
+                        '开始抽奖时间,超过这个时间就无法通过get_all_room获得这个房间(如果原来可以的话)',
+                        '格式是YYMMDDhhmmss,比如111111111111就是2011-11-11 11:11:11',
+                        '注意,不要小于当前时间,必须比提交请求的时间大才可以',
+                    ],
+                    'access' => [
+                        '房间访问类型:',
+                        '1:public 进入和抽奖均无条件, 需要user.level>=2',
+                        '2:protected 进入无条件,抽奖需cdkey 需要user.level>=2',
+                        '3:private 不能无条件进入 需要user.level>=3',
+                    ],
+                    'img' => '图片的路径 比如"gg.jpg",使用add_img处理图片的问题',
+                    'other_option' => '其他选项,根据自己的需求放自定义数据',
+                    'rid' => '要修改的房间号',
+                ],
+                '响应格式' => [
+                    '成功的情况' => '{"result":"success"}',
+                    '创建者cookie失效' => '{"result":"invalid cookie"}',
+                    '标题过长' => '{"result":"invalid title"}',
+                    '非法的开始时间' => '{"result":"invalid start_time"}',
+                    '权限不足的情况' => '{"result":"invalid access"}',
+                    '图片路径不正确' => '{"result":"invalid img"}',
+                    '附加信息过多' => '{"result":"invalid other_option"}',
+                    '房间号不匹配' => '{"result":"invalid rid"}',
+                ],
+            ],
+            '-join_hottery' => [
+                '安全性' => '有',
+                '请求类型' => 'POST',
+                '参数需求' => [
+                    'cookie' => 'CHAR(128) NOT NULL',
+                    'rid' => 'INTEGER NOT NULL',
+                    'cdkey' => 'CHAR(8)',
+                ],
+                '参数说明' => [
+                    'cookie' => '被查询者的cookie',
+                    'rid' => '被查询的房间号',
+                    'cdkey' => '兑换码',
+                ],
+                '响应格式' => [
+                    '已经报名的情况' => '{"result":"already"}',
+                    '成功的情况' => '{"result":"success"}',
+                    '错误的CDKEY' => '{"result":"invalid key"}',
+                    '错误的COOKIE' => '{"result":"invalid cookie"}',
+                    '参数不完整' => '{"result":"failure"}',
+                ]
+            ],
         ];
         $api['bullet'] = [
             'get_bullet' => [
@@ -221,24 +283,6 @@ class api extends \core\ApiCtrl
                     '无效的content' => '{"result":"invalid content"}',
                     '其他情况' => '{"result":"failure"}',
                 ],
-            ]
-        ];
-        $api['hottery'] = [
-            '-join_hottery' => [
-                '安全性' => '有',
-                '请求类型' => 'GET',
-                '参数需求' => [
-                    'cookie' => 'string NOT NULL',
-                    'rid' => 'INTEGER NOT NULL',
-                    'cdkey' => 'string',
-                ],
-                '响应格式' => [
-                    '已经报名的情况' => '{"result":"already"}',
-                    '成功的情况' => '{"result":"success"}',
-                    '错误的CDKEY' => '{"result":"invalid key"}',
-                    '错误的COOKIE' => '{"result":"invalid cookie"}',
-                    '参数不完整' => '{"result":"failure"}',
-                ]
             ]
         ];
         $api['history'] = [
@@ -287,16 +331,69 @@ class api extends \core\ApiCtrl
                     'cookie' => 'CHAR(128) NOT NULL',
                     'rid' => 'INTEGER NOT NULL',
                 ],
+                '参数说明' => [
+                    'cookie' => '被查询者的cookie',
+                    'rid' => '被查询的房间号',
+                ],
                 '响应格式' => [
                     '成功的情况' => '{"result":"success","got":[{"rid":"INTEGER","pid":"INTEGER"},...]}',
                     '错误的COOKIE' => '{"result":"invalid cookie"}',
+                ],
+                '响应样例(成功)' => ["result" => "success", "got" => [["username" => "zxc", "uid" => "31", "time" => "2019-04-06 17:39:39", "name" => "\u4e00\u7b49\u5956", "award" => "\u534e\u4e3a\u7b14\u8bb0\u672c", "img" => "24f7aa630795400a5a2dd05fddf98f7d"]]],
+            ],
+            '-get_joined_user' => [
+                '安全性' => '有',
+                '请求类型' => 'GET',
+                '参数需求' => [
+                    'cookie' => 'CHAR(128) NOT NULL',
+                    'rid' => 'INTEGER NOT NULL',
                 ],
                 '参数说明' => [
                     'cookie' => '被查询者的cookie',
                     'rid' => '被查询的房间号',
                 ],
-//                '响应样例(成功)' => ["result" => "success", "history" => [["rid" => "24", "title" => "zxc"]]],
+                '响应格式' => [
+                    '成功的情况' => '{"result":"success","user":[{"uid":"INTEGER","username":"CHAR(16)"},...]}',
+                    '错误的COOKIE' => '{"result":"invalid cookie"}',
+                ],
+                '响应样例(成功)' => ["result" => "success", "got" => [["username" => "zxc", "uid" => "31", "time" => "2019-04-06 17:39:39", "name" => "\u4e00\u7b49\u5956", "award" => "\u534e\u4e3a\u7b14\u8bb0\u672c", "img" => "24f7aa630795400a5a2dd05fddf98f7d"]]],
             ],
+            '-add_got_history' => [
+                '安全性' => '有',
+                '请求类型' => 'POST',
+                '参数需求' => [
+                    'cookie' => 'CHAR(128) NOT NULL',
+                    'rid' => 'INTEGER NOT NULL',
+                    'uid_pid_json_array' => 'CHAR(?) NOT NULL',
+                ],
+                '参数说明' => [
+                    'cookie' => '被查询者的cookie',
+                    'rid' => '被查询的房间号',
+                    'uid_pid_json_array' => 'json编码的uid和pid对象数组',
+                ],
+                '响应格式' => [
+                    '成功的情况' => '{"result":"success"}',
+                    '错误的COOKIE' => '{"result":"invalid cookie"}',
+                    '错误的数据格式' => '{"result":"invalid uid_pid_json_array"}',
+                ],
+            ],
+            '-get_status' => [
+                '安全性' => '有',
+                '请求类型' => 'GET',
+                '参数需求' => [
+                    'cookie' => 'CHAR(128) NOT NULL',
+                    'rid' => 'INTEGER NOT NULL',
+                ],
+                '参数说明' => [
+                    'cookie' => '被查询者的cookie',
+                    'rid' => '被查询的房间号',
+                ],
+                '响应格式' => [
+                    '中奖的情况' => '{"result":"nb!",other...}',
+                    '未中奖情况' => '{"result":"a pity"}',
+                    '未开奖情况' => '{"result":"wait plz"}',
+                ],
+            ]
         ];
         if (!isset($_POST['json'])) {
             echo '<style type="text/css">pre{font-size:32pt !important;}</style>';

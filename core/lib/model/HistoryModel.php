@@ -6,6 +6,7 @@ const T_HISTORY = 'hottery_history';
 const T_ROOM = 'hottery_room';
 const T_GOT = 'hottery_got';
 const T_PRIZE = 'hottery_prize';
+const T_UID = 'hottery_uid';
 
 class HistoryModel extends \core\lib\MyDB
 {
@@ -113,11 +114,13 @@ class HistoryModel extends \core\lib\MyDB
      */
     public function get_room_got($rid)
     {
-        $table1 = T_GOT . ' A';
-        $table2 = T_HISTORY . ' B';
-        $column = "A.pid,B.uid,B.time";
-        $where = "A.hid=B.hid AND B.rid=$rid";
-        $res = $this->select([$table1, $table2], $column, $where);
+        $t1 = T_GOT . ' A';
+        $t2 = T_HISTORY . ' B';
+        $t3 = T_PRIZE . ' C';
+        $t4 = T_UID . ' D';
+        $column = "D.username,B.uid,B.time,C.name,C.award,C.img";
+        $where = "A.hid=B.hid AND A.pid=C.pid AND B.uid=D.uid AND B.rid=$rid";
+        $res = $this->select([$t1, $t2, $t3, $t4], $column, $where);
         return $res;
     }
 
