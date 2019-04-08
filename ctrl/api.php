@@ -367,7 +367,7 @@ class api extends \core\ApiCtrl
                     '未进房间的中奖' => '{"result":"not in room uid get pid"}',
                 ],
             ],
-            '-get_status' => [
+            'get_status' => [
                 '安全性' => '有',
                 '请求类型' => 'GET',
                 '参数需求' => [
@@ -383,7 +383,8 @@ class api extends \core\ApiCtrl
                     '未中奖情况' => '{"result":"a pity"}',
                     '未开奖情况' => '{"result":"wait plz"}',
                 ],
-            ]
+                '响应样例(中奖)' => ["result" => "nb!", "prize" => ["6" => ["time" => "2019-04-08 23:55:53", "rid" => "23", "title" => "zxc", "name" => "\u4e00\u7b49\u5956", "award" => "\u534e\u4e3a\u7b14\u8bb0\u672c", "img" => "24f7aa630795400a5a2dd05fddf98f7d"]]],
+            ],
         ];
         if (!isset($_POST['json'])) {
             echo '<style type="text/css">pre{font-size:32pt !important;}</style>';

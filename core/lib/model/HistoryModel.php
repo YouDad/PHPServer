@@ -142,6 +142,33 @@ class HistoryModel extends \core\lib\MyDB
         return $hid !== false;
     }
 
+    /**
+     * 返回$hid的中奖状态
+     * @param int $hid
+     * @return string
+     */
+    public function get_status($hid)
+    {
+        $begin = mktime(date("H"), date("i") - 1);
+        $end = mktime();
+        $begin = date("ymdHis", $begin);
+        $end = date("ymdHis", $end);
+        $where = "time>='$begin' AND time<='$end'";
+        $res = $this->select(T_GOT, "*", $where);
+        $res = $res->fetchAll();
+        if (count($res) === 0) {
+            return "wait plz";
+        }
+        $where .= " AND hid=$hid";
+        $res = $this->select(T_GOT, "*", $where);
+        $res = $res->fetchAll();
+        if (count($res) === 0) {
+            return "a pity";
+        } else {
+            return "nb!";
+        }
+    }
+
 }
 
 

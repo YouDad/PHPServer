@@ -68,6 +68,7 @@ return [
             );",
         'hottery_got' =>
             "hottery_got (
+                gid  int                                 null,
                 hid  int                                 not null
                     primary key,
                 pid  int                                 not null,
