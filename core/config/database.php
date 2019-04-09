@@ -8,12 +8,12 @@ return [
     'TABLE_DEFINE' => [
         'hottery_user' =>
             "hottery_user (
-                username     char(16) not null
+                username     char(16)            not null
                     primary key,
-                pass_md5     char(32) not null,
-                level        int      null,
-                phone_number char(20) null,
-                email        char(32) null
+                pass_md5     char(32)            not null,
+                level        int      default 1  null,
+                phone_number char(20) default '' null,
+                email        char(32) default '' null
             );",
         'hottery_room' =>
             "hottery_room (

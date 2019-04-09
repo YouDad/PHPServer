@@ -98,7 +98,11 @@ class UserModel extends \core\lib\MyDB
         return $res[0]['level'];
     }
 
-
+    /**
+     * 返回$uid的个人信息
+     * @param int $uid
+     * @return \PDOStatement
+     */
     public function get_info($uid)
     {
         $table1 = T_USER . ' A';
@@ -106,6 +110,25 @@ class UserModel extends \core\lib\MyDB
         $column = "A.level,A.phone_number,A.email";
         $where = "A.username=B.username AND B.uid='$uid'";
         return $this->select([$table1, $table2], $column, $where);
+    }
+
+    /**
+     * 设置$uid的个人信息
+     * @param int $uid
+     * @param null $phone_number
+     * @param null $email
+     */
+    public function set_info($uid, $phone_number = null, $email = null)
+    {
+        $res = $this->select(T_UID, "*", "uid='$uid'");
+        $username = $res->fetchAll()[0]['username'];
+        $where = "username='$username'";
+        if($phone_number!==null) {
+            $this->update(T_USER, "phone_number", "'$phone_number'", $where);
+        }
+        if($email!==null) {
+            $this->update(T_USER, "email", "'$email'", $where);
+        }
     }
 
 }
