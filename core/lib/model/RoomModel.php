@@ -78,4 +78,13 @@ class RoomModel extends \core\lib\MyDB
         $this->insert(T_LIST, $columns, $values);
     }
 
+
+    public function get_list($rid)
+    {
+        $column = "name,phone_number,option";
+        $where = "rid='$rid'";
+        $res = $this->select(T_LIST, $column, $where);
+        return $res;
+    }
+
 }

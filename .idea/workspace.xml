@@ -1,36 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1625c291-268b-4d6f-b376-3d81e8b0c22e" name="Default Changelist" comment="add_list的API搞定">
-      <change afterPath="$PROJECT_DIR$/ctrl/add_list.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="1625c291-268b-4d6f-b376-3d81e8b0c22e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/ctrl/get_list.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/lib/MyDB.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/lib/MyDB.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/lib/model/RoomModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/lib/model/RoomModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ctrl/UnitTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/ctrl/UnitTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ctrl/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/ctrl/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view" beforeDir="false" afterPath="$PROJECT_DIR$/view" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/UnitTest/DataService.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/UnitTest/js/DataService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/UnitTest/images/ui-bg_diagonals-small_50_262626_40x40.png" beforeDir="false" afterPath="$PROJECT_DIR$/view/UnitTest/css/images/ui-bg_diagonals-small_50_262626_40x40.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/UnitTest/images/ui-bg_glass_40_0a0a0a_1x400.png" beforeDir="false" afterPath="$PROJECT_DIR$/view/UnitTest/css/images/ui-bg_glass_40_0a0a0a_1x400.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/UnitTest/images/ui-bg_glass_55_f1fbe5_1x400.png" beforeDir="false" afterPath="$PROJECT_DIR$/view/UnitTest/css/images/ui-bg_glass_55_f1fbe5_1x400.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/UnitTest/images/ui-bg_glass_60_000000_1x400.png" beforeDir="false" afterPath="$PROJECT_DIR$/view/UnitTest/css/images/ui-bg_glass_60_000000_1x400.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/UnitTest/images/ui-bg_gloss-wave_55_000000_500x100.png" beforeDir="false" afterPath="$PROJECT_DIR$/view/UnitTest/css/images/ui-bg_gloss-wave_55_000000_500x100.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/UnitTest/images/ui-bg_gloss-wave_85_9fda58_500x100.png" beforeDir="false" afterPath="$PROJECT_DIR$/view/UnitTest/css/images/ui-bg_gloss-wave_85_9fda58_500x100.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/UnitTest/images/ui-bg_gloss-wave_95_f6ecd5_500x100.png" beforeDir="false" afterPath="$PROJECT_DIR$/view/UnitTest/css/images/ui-bg_gloss-wave_95_f6ecd5_500x100.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/UnitTest/images/ui-icons_000000_256x240.png" beforeDir="false" afterPath="$PROJECT_DIR$/view/UnitTest/css/images/ui-icons_000000_256x240.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/UnitTest/images/ui-icons_1f1f1f_256x240.png" beforeDir="false" afterPath="$PROJECT_DIR$/view/UnitTest/css/images/ui-icons_1f1f1f_256x240.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/UnitTest/images/ui-icons_9fda58_256x240.png" beforeDir="false" afterPath="$PROJECT_DIR$/view/UnitTest/css/images/ui-icons_9fda58_256x240.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/UnitTest/images/ui-icons_b8ec79_256x240.png" beforeDir="false" afterPath="$PROJECT_DIR$/view/UnitTest/css/images/ui-icons_b8ec79_256x240.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/UnitTest/images/ui-icons_cd0a0a_256x240.png" beforeDir="false" afterPath="$PROJECT_DIR$/view/UnitTest/css/images/ui-icons_cd0a0a_256x240.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/UnitTest/images/ui-icons_ffffff_256x240.png" beforeDir="false" afterPath="$PROJECT_DIR$/view/UnitTest/css/images/ui-icons_ffffff_256x240.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/UnitTest/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/view/UnitTest/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/UnitTest/jquery-ui.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/UnitTest/css/jquery-ui.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/UnitTest/jquery-ui.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/UnitTest/js/jquery-ui.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/UnitTest/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/UnitTest/js/jquery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/UnitTest/md5.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/UnitTest/js/md5.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/UnitTest/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/UnitTest/js/test.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -109,8 +84,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ctrl/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="248" column="14" lean-forward="true" selection-start-line="248" selection-start-column="14" selection-end-line="248" selection-end-column="14" />
+            <state relative-caret-position="555">
+              <caret line="266" column="14" lean-forward="true" selection-start-line="266" selection-start-column="14" selection-end-line="266" selection-end-column="14" />
               <folding>
                 <element signature="e#114#1441#0#PHP" />
                 <element signature="e#139#774#1#PHP" />
@@ -141,10 +116,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/view/UnitTest/css/jquery-ui.css">
+        <entry file="file://$PROJECT_DIR$/ctrl/get_list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="898" column="30" lean-forward="true" selection-start-line="898" selection-start-column="30" selection-end-line="898" selection-end-column="30" />
+            <state relative-caret-position="645">
+              <caret line="43" column="23" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -226,13 +201,12 @@
   </component>
   <component name="Git.Settings">
     <option name="ROOT_SYNC" value="SYNC" />
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/view" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="SIGN_OFF_COMMIT" value="true" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ctrl/delete_user_for_test.php" />
         <option value="$PROJECT_DIR$/ctrl/get_all_room.php" />
         <option value="$PROJECT_DIR$/ctrl/get_log.php" />
         <option value="$PROJECT_DIR$/ctrl/get_room.php" />
@@ -279,10 +253,11 @@
         <option value="$PROJECT_DIR$/core/config/database.php" />
         <option value="$PROJECT_DIR$/core/lib/MyDB.php" />
         <option value="$PROJECT_DIR$/ctrl/add_list.php" />
-        <option value="$PROJECT_DIR$/core/lib/model/RoomModel.php" />
-        <option value="$PROJECT_DIR$/ctrl/api.php" />
         <option value="$PROJECT_DIR$/ctrl/login.php" />
         <option value="$PROJECT_DIR$/view/UnitTest/css/jquery-ui.css" />
+        <option value="$PROJECT_DIR$/ctrl/api.php" />
+        <option value="$PROJECT_DIR$/core/lib/model/RoomModel.php" />
+        <option value="$PROJECT_DIR$/ctrl/get_list.php" />
       </list>
     </option>
   </component>
@@ -456,7 +431,7 @@
       <workItem from="1554717365499" duration="1390000" />
       <workItem from="1554718908600" duration="6158000" />
       <workItem from="1554725141237" duration="14345000" />
-      <workItem from="1554789792648" duration="5463000" />
+      <workItem from="1554789792648" duration="5792000" />
     </task>
     <task id="LOCAL-00001" summary="Configure and Log Class is complete.&#10;Reformat code.">
       <created>1553609647168</created>
@@ -682,11 +657,18 @@
       <option name="project" value="LOCAL" />
       <updated>1554739224824</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="add_list的API搞定">
+      <created>1554795510079</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1554795510079</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="324554000" />
+    <option name="totallyTimeSpent" value="324883000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -701,7 +683,7 @@
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.600863" visible="true" weight="0.1368477" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.600863" visible="true" weight="0.1368477" />
       <window_info id="Structure" order="1" show_stripe_button="false" sideWeight="0.50053936" side_tool="true" weight="0.2432196" />
       <window_info id="Favorites" order="2" show_stripe_button="false" sideWeight="0.50053936" side_tool="true" weight="0.2432196" />
       <window_info id="Remote Host" order="3" sideWeight="0.399137" weight="0.19542067" />
@@ -814,13 +796,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="add_list的API搞定" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ctrl/get_user_got.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ctrl/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -951,13 +926,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="41" lean-forward="true" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ctrl/get_room_got.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -1146,13 +1114,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/lib/model/RoomModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="716">
-          <caret line="73" column="20" selection-start-line="73" selection-start-column="20" selection-end-line="73" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ctrl/add_list.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="664">
@@ -1160,10 +1121,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/view/UnitTest/css/jquery-ui.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="898" column="30" lean-forward="true" selection-start-line="898" selection-start-column="30" selection-end-line="898" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ctrl/api.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="248" column="14" lean-forward="true" selection-start-line="248" selection-start-column="14" selection-end-line="248" selection-end-column="14" />
+        <state relative-caret-position="555">
+          <caret line="266" column="14" lean-forward="true" selection-start-line="266" selection-start-column="14" selection-end-line="266" selection-end-column="14" />
           <folding>
             <element signature="e#114#1441#0#PHP" />
             <element signature="e#139#774#1#PHP" />
@@ -1192,10 +1160,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/UnitTest/css/jquery-ui.css">
+    <entry file="file://$PROJECT_DIR$/ctrl/get_room_got.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="898" column="30" lean-forward="true" selection-start-line="898" selection-start-column="30" selection-end-line="898" selection-end-column="30" />
+        <state relative-caret-position="465">
+          <caret line="31" column="69" lean-forward="true" selection-start-line="31" selection-start-column="69" selection-end-line="31" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/lib/model/RoomModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="769">
+          <caret line="86" column="20" selection-start-line="86" selection-start-column="20" selection-end-line="86" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ctrl/get_list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="43" column="23" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
         </state>
       </provider>
     </entry>

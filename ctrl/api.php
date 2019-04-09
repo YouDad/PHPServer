@@ -247,6 +247,24 @@ class api extends \core\ApiCtrl
                     '参数不完整' => '{"result":"failure"}',
                 ],
             ],
+            'get_list' => [
+                '安全性' => '有',
+                '请求类型' => 'GET',
+                '参数需求' => [
+                    'cookie' => 'CHAR(128) NOT NULL',
+                    'rid' => 'INTEGER NOT NULL',
+                ],
+                '参数说明' => [
+                    'cookie' => '被查询者的cookie',
+                    'rid' => '被查询的房间号',
+                ],
+                '响应格式' => [
+                    '成功的情况' => '{"result":"success","list":[{"name":"CHAR(20)","phone_number":"CHAR(20)","option":"CHAR(?)"},...]}',
+                    '错误的COOKIE' => '{"result":"invalid cookie"}',
+                    '房间权限错误' => '{"result":"invalid rid"}',
+                ],
+//                '响应样例(成功)' => ["result" => "success", "got" => [["username" => "zxc", "uid" => "31", "time" => "2019-04-06 17:39:39", "name" => "\u4e00\u7b49\u5956", "award" => "\u534e\u4e3a\u7b14\u8bb0\u672c", "img" => "24f7aa630795400a5a2dd05fddf98f7d"]]],
+            ],
         ];
         $api['bullet'] = [
             'get_bullet' => [
