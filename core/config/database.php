@@ -104,5 +104,17 @@ return [
                     foreign key (rid) references hottery_room (rid)
                         on update cascade on delete cascade
             );",
+        'hottery_list' =>
+            "hottery_list (
+                lid          int auto_increment
+                    primary key,
+                rid          int         null,
+                name         char(20)    null,
+                phone_number char(20)    null,
+                `option`     varchar(64) null,
+                constraint list_rid
+                    foreign key (rid) references hottery_room (rid)
+                        on update cascade on delete cascade
+            );",
     ],
 ];

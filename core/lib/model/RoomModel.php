@@ -49,13 +49,33 @@ class RoomModel extends \core\lib\MyDB
         return $res[0][0];
     }
 
-
+    /**
+     * 编辑$rid的房间信息
+     * @param int $rid
+     * @param string $t
+     * @param string $i
+     * @param string $o
+     */
     public function edit_room($rid, $t, $i, $o)
     {
         $where = "rid='$rid'";
         $this->update(T_ROOM, "title", "'$t'", $where);
         $this->update(T_ROOM, "img", "'$i'", $where);
         $this->update(T_ROOM, "other_option", "'$o'", $where);
+    }
+
+    /**
+     * 给$rid房间加一个$list名单
+     * @param int $rid
+     * @param string $name
+     * @param string $number
+     * @param string $option
+     */
+    public function add_list($rid, $name, $number, $option)
+    {
+        $columns = "(rid,name,phone_number,option)";
+        $values = "('$rid','$name','$number','$option')";
+        $this->insert(T_LIST, $columns, $values);
     }
 
 }

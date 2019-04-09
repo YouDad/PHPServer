@@ -226,6 +226,27 @@ class api extends \core\ApiCtrl
                     '参数不完整' => '{"result":"failure"}',
                 ]
             ],
+            'add_list' => [
+                '安全性' => '有',
+                '请求类型' => 'POST',
+                '参数需求' => [
+                    'cookie' => 'CHAR(128) NOT NULL',
+                    'rid' => 'INTEGER NOT NULL',
+                    'list' => 'CHAR(?) NOT NULL',
+                ],
+                '参数说明' => [
+                    'cookie' => '被查询者的cookie',
+                    'rid' => '被查询的房间号',
+                    'list' => 'json格式的名单,名单应该有name,phone_number,option三个属性',
+                ],
+                '响应格式' => [
+                    '成功的情况' => '{"result":"success"}',
+                    '错误的COOKIE' => '{"result":"invalid cookie"}',
+                    '房间权限错误' => '{"result":"invalid rid"}',
+                    '错误的数据格式' => '{"result":"invalid list"}',
+                    '参数不完整' => '{"result":"failure"}',
+                ],
+            ],
         ];
         $api['bullet'] = [
             'get_bullet' => [

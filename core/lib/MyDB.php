@@ -11,6 +11,7 @@ const T_GOT = 'hottery_got';
 const T_PRIZE = 'hottery_prize';
 const T_LOG = 'log';
 const T_USER = 'hottery_user';
+const T_LIST = 'hottery_list';
 
 namespace core\lib;
 
