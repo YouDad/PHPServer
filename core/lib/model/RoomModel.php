@@ -78,7 +78,11 @@ class RoomModel extends \core\lib\MyDB
         $this->insert(T_LIST, $columns, $values);
     }
 
-
+    /**
+     * 获得$rid房间的名单
+     * @param int $rid
+     * @return \PDOStatement
+     */
     public function get_list($rid)
     {
         $column = "name,phone_number,option";

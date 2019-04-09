@@ -98,4 +98,14 @@ class UserModel extends \core\lib\MyDB
         return $res[0]['level'];
     }
 
+
+    public function get_info($uid)
+    {
+        $table1 = T_USER . ' A';
+        $table2 = T_UID . ' B';
+        $column = "A.level,A.phone_number,A.email";
+        $where = "A.username=B.username AND B.uid='$uid'";
+        return $this->select([$table1, $table2], $column, $where);
+    }
+
 }

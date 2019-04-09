@@ -44,6 +44,39 @@ class api extends \core\ApiCtrl
             '-register_by_email' => [
                 '安全性' => '有',
             ],
+            'get_info' => [
+                '安全性' => '有',
+                '请求类型' => 'GET',
+                '参数需求' => [
+                    'cookie' => 'CHAR(128) NOT NULL',
+                ],
+                '参数说明' => [
+                    'cookie' => '被查询者的cookie',
+                ],
+                '响应格式' => [
+                    '成功的情况' => '{"result":"success",other...}',
+                    '被查询者cookie失效' => '{"result":"invalid cookie"}',
+                ],
+                '响应样例(成功)' => ["result" => "success", "level" => "4", "phone_number" => "18640361595", "email" => "20164658@stu.neu.edu.cn"],
+            ],
+            'set_info' => [
+                '安全性' => '有',
+                '请求类型' => 'POST',
+                '参数需求' => [
+                    'cookie' => 'CHAR(128) NOT NULL',
+                    'phone_number' => 'CHAR(20)',
+                    'email' => 'CHAR(32)',
+                ],
+                '参数说明' => [
+                    'cookie' => '被设置者的cookie',
+                    'phone_number' => '手机号',
+                    'email' => '邮箱',
+                ],
+                '响应格式' => [
+                    '成功的情况' => '{"result":"success"}',
+                    '被设置者cookie失效' => '{"result":"invalid cookie"}',
+                ],
+            ],
         ];
         $api['room'] = [
             'get_all_room' => [
