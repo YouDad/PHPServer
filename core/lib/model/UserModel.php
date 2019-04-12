@@ -73,14 +73,6 @@ class UserModel extends \core\lib\MyDB
     }
 
     /**
-     * 为测试写的,删除固定用户1的函数
-     */
-    public function delete_user_for_test()
-    {
-        return $this->delete(T_USER, "username='1'");
-    }
-
-    /**
      * 根据$uid得到他的等级
      * @param $uid int
      * @return int|false

@@ -5,10 +5,12 @@ use core\lib\model as M;
 /**
  * 返回名叫name的model
  * @param string $name
- * @return M\UserModel|M\CookieModel|M\PrizeModel|M\LogModel|M\RoomModel|M\HistoryModel|M\CdkeyModel|M\BulletModel
+ * @return M\UserModel|M\CookieModel|M\PrizeModel|M\LogModel|M\RoomModel|M\HistoryModel|M\CdkeyModel|M\BulletModel|\core\lib\MyDB
  */
-function model($name)
+function model($name = null)
 {
+    if ($name === null)
+        return \core\lib\MyDB::getIns();
     /* @var M\UserModel|M\CookieModel|M\PrizeModel|M\LogModel|M\RoomModel|M\HistoryModel|M\CdkeyModel|M\BulletModel $className */
     $className = "\\core\\lib\\model\\" . $name . "Model";
     return $className::getIns();
@@ -35,7 +37,7 @@ function get_server_time()
     date_default_timezone_set("Asia/Shanghai");
     $zero1 = strtotime(date("y-m-d h:i:s"));
     $zero2 = strtotime("1970-01-01 00:00:00");
-    return ($zero1 - $zero2) + 14400;
+    return ($zero1 - $zero2) + 14400 - 43200;
 }
 
 /**
@@ -133,4 +135,25 @@ function img_exists($file_name)
 {
     global $IMG;
     return file_exists("$IMG/$file_name");
+}
+
+
+function check_prize()
+{
+//    if (is_file('pq')) {
+//        /* @var SplPriorityQueue $pq */
+//        $pq = json_decode(file_get_contents('pq'));
+//    } else {
+//        $pq = new SplPriorityQueue();
+//    }
+//    $now = get_server_time();
+//    $need = false;
+//    while ($pq->top() > $now) {
+//        $pq->extract();
+//        $need = true;
+//    }
+//    if ($need) {
+//
+//    }
+//    file_put_contents('pq', json_encode($pq));
 }

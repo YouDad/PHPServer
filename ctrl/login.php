@@ -18,11 +18,13 @@ class login extends \core\ApiCtrl
             return $response;
         }
 
-        //时间不能相差太大
-        if (abs(get_server_time() - $_SERVER['REQUEST_TIME']) > 3) {
-            $response['result'] = "timeout";
-            return $response;
-        }
+////        dump(get_server_time(), $_SERVER['REQUEST_TIME']);
+//
+//        //时间不能相差太大
+//        if (abs(get_server_time() - $_SERVER['REQUEST_TIME']) > 3) {
+//            $response['result'] = "timeout";
+//            return $response;
+//        }
 
         //确定账号密码是否正确
         $res = model("User")->check_user($_0, $_1, $_2);

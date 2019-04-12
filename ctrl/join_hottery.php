@@ -15,7 +15,7 @@ class join_hottery extends \core\ApiCtrl
             $_0 = $_METHOD['cookie'];
             $_1 = $_METHOD['rid'];
         } catch (\Exception $exception) {
-            //必选参数不能为空
+            //必选参数不能为空;
             return $response;
         }
 
@@ -36,15 +36,17 @@ class join_hottery extends \core\ApiCtrl
             return $response;
         }
 
-        //检查cdkey是否正确
-        $rid = model("Cdkey")->cdkey_to_rid($_2);
-        if (!$rid || $rid != $_1) {
-            $response['result'] = "invalid cdkey";
-            return $response;
+        if (model("Room")->get_level($_1) == 2) {
+            //检查cdkey是否正确
+            $rid = model("Cdkey")->cdkey_to_rid($_2);
+            if (!$rid || $rid != $_1) {
+                $response['result'] = "invalid cdkey";
+                return $response;
+            }
         }
 
         //记录他的加入
-        model("History")->add_history($uid, $rid, his::JOIN);
+        model("History")->add_history($uid, $_1, his::JOIN);
         $response['result'] = "success";
         return $response;
     }

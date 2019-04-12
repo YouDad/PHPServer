@@ -91,4 +91,20 @@ class RoomModel extends \core\lib\MyDB
         return $res;
     }
 
+    /**
+     * 获得房间权限等级
+     * @param int $rid
+     * @return int
+     * @throws \Exception
+     */
+    public function get_level($rid)
+    {
+        $res = $this->select(T_ROOM, "*", "rid='$rid'");
+        $res = $res->fetchAll();
+        if (count($res) === 0) {
+            throw new \Exception("not have access");
+        }
+        return $res[0]['access'];
+    }
+
 }

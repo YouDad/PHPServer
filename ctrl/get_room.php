@@ -2,6 +2,9 @@
 
 namespace ctrl;
 
+use core\lib\model\HistoryModel as his;
+use core\lib\model as M;
+
 class get_room extends \core\ApiCtrl
 {
     public function main()
@@ -32,6 +35,15 @@ class get_room extends \core\ApiCtrl
         $res = model("Prize")->get_prize($response['rid'])->fetchAll();
         clear_fetchAll($res);
         $response['prize'] = $res;
+
+        //返回房主信息
+        $res = model("History")->get_room_history($_0, his::MAKE);
+        $uid = $res->fetchAll()[0]['uid'];
+
+        $res = model()->select(M\T_UID, "username,uid", "uid='$uid'");
+        $res = $res->fetchAll();
+        clear_fetchAll($res);
+        $response['master'] = $res[0];
 
         $response['result'] = "success";
         return $response;

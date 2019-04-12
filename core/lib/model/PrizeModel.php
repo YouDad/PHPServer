@@ -18,7 +18,7 @@ class PrizeModel extends \core\lib\MyDB
     {
         $column1 = reserve($prob, ",prob");
         $column2 = reserve($img, ",img");
-        $columns = "(rid,name,award,number$column1,$column2)";
+        $columns = "(rid,name,award,number$column1$column2)";
         $value1 = reserve($prob, ",'$prob'");
         $value2 = reserve($img, ",'$img'");
         $values = "('$rid','$name','$award','$number'$value1$value2)";

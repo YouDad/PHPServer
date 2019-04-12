@@ -67,7 +67,7 @@ class HistoryModel extends \core\lib\MyDB
         $_1 = $type / 2;
         $_2 = $type % 2 ? "<$time" : ">=$time";
         $where = "A.rid=B.rid AND uid=$uid AND type=$_1 AND B.start_time$_2";
-        $res = $this->select([$table1, $table2], "A.rid,B.title", $where);
+        $res = $this->select([$table1, $table2], "A.rid,B.title,B.img", $where);
 
         return $res->fetchAll();
     }

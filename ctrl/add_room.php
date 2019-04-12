@@ -24,7 +24,7 @@ class add_room extends \core\ApiCtrl
 
         //可选参数赋值
         $_5 = null;
-        if (isset($_METHOD['other_option'])&& $_METHOD['other_option'] !== "") $_5 = $_METHOD['other_option'];
+        if (isset($_METHOD['other_option']) && $_METHOD['other_option'] !== "") $_5 = $_METHOD['other_option'];
 
         //检查cookie是否正确
         $uid = model("Cookie")->get_user($_0);
@@ -80,6 +80,14 @@ class add_room extends \core\ApiCtrl
         model("History")->add_history($uid, $rid, his::MAKE);
         $response['result'] = "success";
         $response['rid'] = $rid;
+        if ($_3) {
+            $obj = json_decode($_5);
+            try {
+                model("Cdkey")->add_cdkey($rid, $obj->cdkey);
+            } catch (\Exception $e) {
+                $response['result'] = "success but no cdkey";
+            }
+        }
         return $response;
     }
 }

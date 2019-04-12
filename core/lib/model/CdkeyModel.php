@@ -19,4 +19,15 @@ class CdkeyModel extends \core\lib\MyDB
             return false;
         }
     }
+
+    /**
+     * 添加一个cdkey
+     * @param int $rid
+     * @param string $cdkey
+     * @return \PDOStatement
+     */
+    public function add_cdkey($rid, $cdkey)
+    {
+        return $this->insert(T_CDKEY, "(rid,cdkey)", "('$rid','$cdkey')");
+    }
 }

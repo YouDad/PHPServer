@@ -95,7 +95,7 @@ class MyDB
      * @param null $where 查询记录的条件
      * @return \PDOStatement
      */
-    protected function select($table, $column = "*", $where = null)
+    public function select($table, $column = "*", $where = null)
     {
         if (is_array($table)) {
             $tables = [];
@@ -119,7 +119,7 @@ class MyDB
      * @param null $where 更新的条件
      * @return \PDOStatement
      */
-    protected function update($table, $column, $content, $where = null)
+    public function update($table, $column, $content, $where = null)
     {
         $table = "$this->db.$table";
         $where = reserve($where, "WHERE $where");
@@ -134,7 +134,7 @@ class MyDB
      * @param string $values 需要插入记录的值
      * @return \PDOStatement
      */
-    protected function insert($table, $columns, $values)
+    public function insert($table, $columns, $values)
     {
         $table = "$this->db.$table";
         $sql = "INSERT INTO $table$columns VALUES$values;";
@@ -147,7 +147,7 @@ class MyDB
      * @param string $where 删除记录的条件
      * @return \PDOStatement
      */
-    protected function delete($table, $where)
+    public function delete($table, $where)
     {
         $table = "$this->db.$table";
         $sql = "DELETE FROM $table WHERE $where;";
