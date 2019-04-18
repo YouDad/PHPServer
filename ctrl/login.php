@@ -35,6 +35,7 @@ class login extends \core\ApiCtrl
         //生成一个cookie返回
         $response['result'] = "success";
         $uid = model("User")->get_uid($_0);
+        $response['level'] = model("User")->get_level($uid);
         $response['cookie'] = model("Cookie")->gen_cookie($uid);
         return $response;
     }

@@ -14,7 +14,7 @@ class BulletModel extends \core\lib\MyDB
     {
         $table1 = T_BULLET . ' A';
         $table2 = T_UID . ' B';
-        $columns = "B.username,A.time,A.content";
+        $columns = "B.username,A.time,A.content,A.bid";
         $where = "A.uid=B.uid AND A.rid='$rid' AND A.bid > '$bid'";
         $res = $this->select([$table1, $table2], $columns, $where);
         return $res;

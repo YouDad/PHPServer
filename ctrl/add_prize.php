@@ -38,7 +38,7 @@ class add_prize extends \core\ApiCtrl
         $res = model("History")->get_room_history($_1, his::MAKE);
         $res = $res->fetchAll();
         if (count($res) !== 1 || $res[0]['uid'] != $uid) {
-            $response['result'] = "failure";
+            $response['result'] = "not create";
             return $response;
         }
 

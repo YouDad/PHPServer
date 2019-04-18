@@ -21,7 +21,7 @@ class api extends \core\ApiCtrl
                     'time' => '发送时的时间',
                 ],
                 '响应格式' => [
-                    '成功的情况' => '{"result":"success","cookie":"CHAR(128)"}',
+                    '成功的情况' => '{"result":"success","cookie":"CHAR(128)","level":"INTEGER"}',
                     '失败的情况' => '{"result":"failure"}',
                 ],
             ],
@@ -319,7 +319,7 @@ class api extends \core\ApiCtrl
                     '发送者不在房间里' => '{"result":"invalid rid"}',
                     '其他情况' => '{"result":"failure"}',
                 ],
-                '响应样例(成功)' => ["result" => "success", "bullet" => [["username" => "zxc", "time" => "2019-04-08 19:49:34", "content" => "Game"]]],
+                '响应样例(成功)' => ["result" => "success", "bullet" => [["username" => "zxc", "time" => "2019-04-08 19:49:34", "content" => "Game", "bid" => "4"], ["username" => "zxc", "time" => "2019-04-15 00:04:51", "content" => "Game", "bid" => "5"]]],
             ],
             'add_bullet' => [
                 '安全性' => '有',

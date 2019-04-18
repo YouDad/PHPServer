@@ -10,5 +10,6 @@ class requests extends \core\ApiCtrl
         if(isset($_GET))dump($_GET);
         if(isset($_POST))dump($_POST);
         if(isset($_SESSION))dump($_SESSION);
+        if(isset($_COOKIE))dump($_COOKIE);
     }
 }

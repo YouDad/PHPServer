@@ -61,15 +61,52 @@ class UserModel extends \core\lib\MyDB
     }
 
     /**
+     * 检查学生是否已经注册,如果没有,则注册,返回是否注册成功
+     * @param string $nickname
+     * @param int $sid
+     * @return bool
+     */
+    public function add_stu($nickname, $sid)
+    {
+        $level = 1;
+        $phone_number = null;
+        //检查是否存在同名用户
+        $where = "username='$nickname'";
+        $res = $this->select(T_USER, "*", $where);
+        if (count($res->fetchAll()) !== 0) {
+            //存在同名用户
+            return false;
+        }
+
+        //注册该用户
+        $column1 = reserve($level, ",level");
+        $column2 = reserve($phone_number, ",phone_number");
+        $columns = "(username,pass_md5$column1$column2)";
+        $value1 = reserve($level, ",'$level'");
+        $value2 = reserve($phone_number, ",'$phone_number'");
+        $values = "('$nickname',''$value1$value2)";
+        $this->insert(T_USER, $columns, $values);
+
+        //插入uid的表
+        $this->insert(T_UID, "(uid,username)", "('$sid','$nickname')");
+        return true;
+    }
+
+    /**
      * 返回$username的uid
      * @param string $username
-     * @return int
+     * @return int|false
      */
     public function get_uid($username)
     {
         $where = "username='$username'";
-        $t = $this->select(T_UID, "uid", $where);
-        return $t->fetchAll()[0]['uid'];
+        $res = $this->select(T_UID, "uid", $where);
+        $res = $res->fetchAll();
+        if (count($res) === 0) {
+            return false;
+        } else {
+            return $res[0]['uid'];
+        }
     }
 
     /**
@@ -115,10 +152,10 @@ class UserModel extends \core\lib\MyDB
         $res = $this->select(T_UID, "*", "uid='$uid'");
         $username = $res->fetchAll()[0]['username'];
         $where = "username='$username'";
-        if($phone_number!==null) {
+        if ($phone_number !== null) {
             $this->update(T_USER, "phone_number", "'$phone_number'", $where);
         }
-        if($email!==null) {
+        if ($email !== null) {
             $this->update(T_USER, "email", "'$email'", $where);
         }
     }

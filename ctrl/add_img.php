@@ -26,11 +26,11 @@ class add_img extends \core\ApiCtrl
             return $response;
         }
 
-        //先用请求头的类型进行初步筛选,不要其他类型的
-        if ($_1 !== "image/jpeg" && $_1 !== "image/pjpeg" && $_1 !== "image/png") {
-            $response['result'] = "invalid type";
-            return $response;
-        }
+//        //先用请求头的类型进行初步筛选,不要其他类型的
+//        if ($_1 !== "image/jpeg" && $_1 !== "image/pjpeg" && $_1 !== "image/png") {
+//            $response['result'] = "invalid type";
+//            return $response;
+//        }
 
         //把不合法大小的文件筛掉
         if ($_2 > (1 << 30)) {
