@@ -23,7 +23,7 @@ class temp_room extends \core\ApiCtrl
         setcookie('rid', $rid, time() + 3600 * 24 * 365 * 100, "/");
         global $VIEW;
         echo "<base href='view/WebLottery/source/' />";
-        $path = "$VIEW/WebLottery/source/tmp_room.html";
+        $path = "$VIEW/WebLottery/source/temp_room.html";
         include($path);
         return null;
     }
