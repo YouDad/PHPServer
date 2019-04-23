@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1625c291-268b-4d6f-b376-3d81e8b0c22e" name="Default Changelist" comment="临时">
+    <list default="true" id="1625c291-268b-4d6f-b376-3d81e8b0c22e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ctrl/temp_room.php" beforeDir="false" afterPath="$PROJECT_DIR$/ctrl/temp_room.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view" beforeDir="false" afterPath="$PROJECT_DIR$/view" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/WebLottery/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/view/WebLottery/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/WebLottery/assets/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/WebLottery/assets/js/login.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -71,8 +69,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ctrl/add_bullet.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="20" lean-forward="true" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+            <state relative-caret-position="45">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
@@ -238,7 +236,20 @@
       <sortByType ProjectPane="true" />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="html" type="b2602c69:ProjectViewProjectNode" />
+              <item name="html" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mariadb" />
@@ -357,7 +368,8 @@
       <workItem from="1555830169714" duration="592000" />
       <workItem from="1555894528669" duration="669000" />
       <workItem from="1555898247553" duration="385000" />
-      <workItem from="1555935564690" duration="667000" />
+      <workItem from="1555935564690" duration="801000" />
+      <workItem from="1555939152889" duration="44000" />
     </task>
     <task id="LOCAL-00001" summary="Configure and Log Class is complete.&#10;Reformat code.">
       <created>1553609647168</created>
@@ -632,11 +644,18 @@
       <option name="project" value="LOCAL" />
       <updated>1555574883114</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="修复一个bug:login.js new DataService的问题">
+      <created>1555936831806</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1555936831806</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="376697000" />
+    <option name="totallyTimeSpent" value="376875000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -649,14 +668,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.600863" weight="0.14802982" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.600863" visible="true" weight="0.14962727" />
       <window_info id="Structure" order="1" show_stripe_button="false" sideWeight="0.50053936" side_tool="true" weight="0.2432196" />
       <window_info id="Favorites" order="2" show_stripe_button="false" sideWeight="0.50053936" side_tool="true" weight="0.2432196" />
-      <window_info active="true" id="Remote Host" order="3" sideWeight="0.399137" visible="true" weight="0.171459" />
+      <window_info id="Remote Host" order="3" sideWeight="0.399137" weight="0.171459" />
       <window_info anchor="bottom" id="SQL Generator" order="0" weight="0.32905984" />
-      <window_info anchor="bottom" auto_hide="true" x="312" y="458" width="1514" height="190" id="File Transfer" order="1" type="SLIDING" visible="true" weight="0.2553419" />
+      <window_info anchor="bottom" auto_hide="true" x="312" y="458" width="1514" height="190" id="File Transfer" order="1" type="SLIDING" weight="0.2553419" />
       <window_info anchor="bottom" id="Message" order="2" />
       <window_info anchor="bottom" id="Find" order="3" weight="0.32799146" />
       <window_info anchor="bottom" id="Run" order="4" />
@@ -737,7 +755,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="添加了确认奖项号和删除奖项&#10;对api添加了返回json功能&#10;添加了删除奖项的API&#10;完成测试api的网页&#10;稍微美化了一下工作日志" />
     <MESSAGE value="修复了add_prize的小bug&#10;完成了add_room和get_room的API&#10;稍微修改了一下get_all_room的接口定义&#10;清洗了get_all_room的数据&#10;上线了test_img的网站" />
     <MESSAGE value="新增CdkeyModel&#10;完成get_room和join_room的API" />
     <MESSAGE value="简化了reserve函数,多余的功能交给双引号字符串&#10;优化了HistoryModel的代码,增加了联合查询函数get_user_history&#10;优化了MyDB的写法,增强了select的功能,使得db子类能适配多表联合查询&#10;给RoomModel写了注释&#10;增加了get_pending_history的API" />
@@ -762,7 +779,8 @@
     <MESSAGE value="set_info的API搞定" />
     <MESSAGE value="login的时间限制有问题...&#10;增加了add_room对cdkey的添加&#10;修复了add_prize的bug&#10;改善了for_test的API&#10;配合for_test,把MyDB的权限放给外界&#10;增加了get_room的关于房主的信息&#10;放宽了join_hottery对access的要求,只有2需要验证cdkey" />
     <MESSAGE value="临时" />
-    <option name="LAST_COMMIT_MESSAGE" value="临时" />
+    <MESSAGE value="修复一个bug:login.js new DataService的问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复一个bug:login.js new DataService的问题" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/ctrl/register.php">
@@ -1127,8 +1145,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ctrl/add_bullet.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="20" lean-forward="true" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
